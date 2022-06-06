@@ -1,0 +1,19 @@
+{
+  "name": "consumo-api-rest",
+  "version": "1.0.0",
+  "description": "Curso práctico de consumo de API REST con Javascript",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dariopaladinesc/Consumo-Api-Rest.git"
+  },
+  "author": "Dario Paladines",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dariopaladinesc/Consumo-Api-Rest/issues"
+  },
+  "homepage": "https://github.com/dariopaladinesc/Consumo-Api-Rest#readme"
+}
