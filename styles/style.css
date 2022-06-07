@@ -69,11 +69,10 @@ html{
 }
 .section-movie-description button{
     position: absolute;
-    top: 95px;
-    left: 140px;
+    top:145px;
+    left: 10px;
     width: 35px;
     height: 35px;
-    margin: 5px 15px;
     padding-left: 3px;
     background:linear-gradient(to right, var(--hard-color), var(--principal-color));
     border-radius: 50%;
@@ -103,7 +102,7 @@ html{
     width: 70%;
     font-size: 12px;
     text-align: justify;
-    margin: 10px 0px 0px 0px;
+    margin: 10px 0px 5px 5px;
 }
 
 
