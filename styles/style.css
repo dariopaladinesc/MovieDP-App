@@ -105,31 +105,8 @@ html{
     text-align: justify;
     margin: 10px 0px 0px 0px;
 }
-.principal-main-section .main-section--buttons-container .play-button{
-    width: 35px;
-    height: 35px;
-    margin: 5px 15px;
-    padding-left: 3px;
-    background:linear-gradient(to right, var(--hard-color), var(--principal-color));
-    border-radius: 50%;
-    border: none;
-    color:white;
-    cursor: pointer;
-}
-.principal-main-section .main-section--buttons-container .play-button:hover{
-    background: #12004d;
-}
-.principal-main-section .main-section--buttons-container .favorites-button{
-    width: 80px;
-    height: 25px;
-    border-radius: 15px;
-    background:linear-gradient(to bottom, var(--hard-color), var(--principal-color) );
-    color:white;
-    border: none;
-    box-shadow: rgb(0, 0, 0) 0px 3px;
-    font-family: "Baloo 2", cursive;
-    cursor: pointer;
-}
+
+
 .title-section{
     display: flex;
     justify-content: space-between;
