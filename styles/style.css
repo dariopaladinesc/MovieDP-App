@@ -112,6 +112,22 @@ html{
     box-shadow: rgb(0, 0, 0) 0px 3px;
     font-family: "Baloo 2", cursive;
 }
+.title-section{
+    display: flex;
+    justify-content: space-between;
+}
+.title-section button{
+    width: 80px;
+    height: 28px;
+    font-weight: bold;
+    margin:  10px 10px 10px 10px;
+    border:  2px solid #12004d;
+    border-radius: 7px;
+    box-shadow: #1b172b 2px 2px;
+    background-color: #32303b;
+    color: white;
+    cursor: pointer;
+}
 .trend-section-container h3{
     margin: 20px 10px 10px 10px;
     color:white;
@@ -122,6 +138,7 @@ html{
     overflow-x: scroll;
 
 }
+
 .trend-container-figures .figure-container--movie-list{
     display: grid;
     justify-items: center;
