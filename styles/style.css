@@ -5,8 +5,15 @@
 }
 
 :root {
-    --principal-color: #968fbb;
-    --secondary-color: rgb(89, 88, 88);
+    --principal-color: #a7a1c8;
+    --secondary-color: #4b417b;
+    --hard-color:#2c1e74;
+}
+html{
+    font-family: "Baloo 2", cursive;
+    line-height: 10px;
+    background:linear-gradient(to top,  #9a91c4, #141414 80%)
+
 }
 
 .principal-nav p{
@@ -16,7 +23,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: var(--secondary-color);
+    background-color: black
 }
 
 .principal-nav .nav-logo--container img{
@@ -26,32 +33,116 @@
 }
 
 .principal-nav .nav-search{
-    width: 230px;
+    width: 195px;
     height: 30px;
     margin: 0px 10px;
-    border: 1px solid white;
+    border: 1px solid var(--principal-color);
     border-radius: 15px;
     display: flex;
     align-items: center;
 }
 .principal-nav .nav-search:hover{
-    box-shadow: rgb(36, 36, 36) 1px 1px;
-    border: 2px solid rgb(20, 20, 20);
+   border: 2px solid var(--secondary-color);
+
 }
 .principal-nav .nav-search input{
-    background-color: var(--secondary-color);
+    background-color:black;
     border:none;
-    width: 175px;
+    width: 1Z5px;
     height: 24px;
     margin: 0px 10px;
     outline: none; /*quitarle el estilo al seleccionar el input*/
 }
 
 .principal-nav .nav-search img{
-    width: 20px;
-    height: 13px;
+    width: 30px;
+    height: 30px;
+    padding: 6px;
+    background-color: var(--principal-color);
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    cursor: pointer;
 }
 
+.principal-main-section{
+    width: 100%;
+    height: 250px;
+    background-image: url(/poster.png);
+    background-size:cover;
+    background-repeat: no-repeat;
+    opacity: 0.75;
+}
+
+.principal-main-section .section-movie-description{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: end;
+    color: white;
+    margin: 0px 10px;
+}
+
+.principal-main-section .section-movie-description p{
+    width: 70%;
+    font-size: 12px;
+    text-align: justify;
+    margin: 10px 0px 0px 0px;
+}
+.principal-main-section .main-section--buttons-container .play-button{
+    width: 30px;
+    height: 30px;
+    margin: 5px 15px;
+    padding-left: 3px;
+    background:linear-gradient(to right, var(--hard-color), var(--principal-color));
+    border-radius: 50%;
+    border: none;
+    color:white;
+}
+.principal-main-section .main-section--buttons-container .play-button:hover{
+    background-color: #12004d;
+    cursor: pointer;
+}
+.principal-main-section .main-section--buttons-container .favorites-button{
+    width: 80px;
+    height: 25px;
+    border-radius: 15px;
+    background:linear-gradient(to bottom, var(--hard-color), var(--principal-color) );
+    color:white;
+    border: none;
+    box-shadow: rgb(0, 0, 0) 0px 3px;
+    font-family: "Baloo 2", cursive;
+}
+.trend-section-container h3{
+    margin: 20px 10px 10px 10px;
+    color:white;
+    font-size: 300;
+}
+.trend-container-figures{
+    display: flex;
+    overflow-x: scroll;
+
+}
+.trend-container-figures .figure-container--movie-list{
+    display: grid;
+    justify-items: center;
+    
+    margin: 10px 5px;
+}
+.trend-container-figures .figure-container--movie-list .description-movie{
+    display: grid;
+    grid-template-columns: 1fr;
+    
+}
+.trend-container-figures .figure-container--movie-list img{
+    height: 170px;
+    border-radius: 5px;
+}
+
+
+.figure-container--movie-list p{
+    color: white;
+    margin-top: 10px;
+}
 
 
 .nav-section-movies{
