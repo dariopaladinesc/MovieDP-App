@@ -56,27 +56,19 @@ async function getCategoriesPreview(){
     const data = await res.json();
 
     const categories = data.genres;
-    console.log({ data, movies});
+    console.log(data, categories);
     categories.forEach(category => {
-        //DOM (Buscar Notas)
-        const categoriesPreview = document.querySelector(".categories-section")
-
-        const categoryContainer = document.createElement("div"); 
-        categoryContainer.classList.add("categories-section--list");
+        const categoriesPreview = document.querySelector(".categories-section .categories-section--list")
 
         const categoryButton = document.createElement("button"); 
-        categoryButton.classList.add("imgMovie");
-        movieImg.setAttribute("alt", movie.title); 
-        movieImg.setAttribute("src", "https://image.tmdb.org/t/p/w300" + movie.poster_path);
+        categoryButton.classList.add("boton");
+        const contentBotton = document.createTextNode(category.name)
 
         //APENDCHILD (buscar en notas)
-        movieContainer.appendChild(movieImg); 
-        trendingPreview.appendChild(movieContainer);
-        titleMovie.appendChild(textP);
-        titleMovieContainer.appendChild(titleMovie, rateMovie); 
-        rateMovie.appendChild(textRate);
-        titleMovieContainer.appendChild(rateMovie);
-        movieContainer.appendChild(titleMovieContainer); 
+       categoryButton.appendChild(contentBotton);
+       categoriesPreview.appendChild(categoryButton)
     })
     
 }
+
+getCategoriesPreview()
