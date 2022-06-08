@@ -147,8 +147,7 @@ html{
 }
 .trend-container-figures .figure-container--movie-list .description-movie{
     display: grid;
-    grid-template-columns: 1fr;
-    
+    grid-template-columns: 1fr;   
 }
 
 .trend-container-figures .figure-container--movie-list img{
@@ -165,10 +164,6 @@ html{
 .trend-container-figures .figure-container--movie-list .description-movie .rate{
     color: black;
     font-weight: 500;
-}
-
-.nav-section-movies{
-    display: none;
 }
 
 .categories-section h3{
@@ -213,3 +208,10 @@ html{
    }
 
  
+
+ 
+ 
+ 
+   .nav-section-movies{
+    display: none;
+}
