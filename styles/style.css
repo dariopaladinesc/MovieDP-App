@@ -150,17 +150,22 @@ html{
     grid-template-columns: 1fr;
     
 }
+
 .trend-container-figures .figure-container--movie-list img{
     height: 170px;
     border-radius: 5px;
 }
-
-
-.figure-container--movie-list p{
+.trend-container-figures .figure-container--movie-list .description-movie p{
     color: white;
     margin-top: 10px;
+    line-height: 15px;
+    font-weight: 300;
 }
 
+.trend-container-figures .figure-container--movie-list .description-movie .rate{
+    color: black;
+    font-weight: 500;
+}
 
 .nav-section-movies{
     display: none;
