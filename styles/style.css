@@ -128,7 +128,7 @@ html{
     color: white;
     cursor: pointer;
 }
-.trend-section-container h3{
+#trend-section-container h3{
     margin: 20px 10px 10px 10px;
     color:white;
     font-size: 300;
