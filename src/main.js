@@ -1,15 +1,25 @@
 ///NOTAS 
-////MANIPULACION DEL DOM --> Al manipular el dom tenemos que tener la misma estructura del html (clases, id, etiquetas) para que se enlazen con css y js
-////Los appendchild nos sirven para crear nodos donde el primer valor es el contenedor padre y el que va en parentesis el contenedor o etq hija (tener en cuenta que para que funcione, siempre se deben tener la misma estructura del HTML, irse guiando por el nombre de las clases)
-
+////MANIPULACION DEL DOM.- Al manipular el dom tenemos que tener la misma estructura del html (clases, id, etiquetas) para que se enlazen con css y js
+////APPENDCHILD.- Los appendchild nos sirven para crear nodos donde el primer valor es el contenedor padre y el que va en parentesis el contenedor o etq hija (tener en cuenta que para que funcione, siempre se deben tener la misma estructura del HTML, irse guiando por el nombre de las clases)
+///AXIOS.- Axios me permite trabajar sin la necesidad de hacer un fetch, sin la necesidad de en la url colocar todo el link sino irlo colocando por partes, igualmente la api-key, ya que esta se coloca dentro de las propiedades de axios, y finalmente para este ejemplo no hay necesidad de parsear la respuesta que obtenemos de la API con el .json . Revisar la diferencia entre las dos funciones "trending y categories" la una con y la otra sin axios
 
 
 
 const apiKey =  "ebef3c4904b620dd2750ccb92c78cdc6"
 
+//AXIOS
+const api = axios.create({
+    baseURL:"https://api.themoviedb.org/3/",
+    headers: {
+        "Content-Type": "application/json;charset=utf-8"
+    },
+    params:{
+        "api_key": apiKey,
+    },
+}); 
+
 async function getTrendingPreview(){
-    const res = await fetch("https://api.themoviedb.org/3/trending/movie/day?api_key=" + apiKey)
-    const data = await res.json();
+    const { data } = await api("trending/movie/day")
 
     const movies = data.results;
     console.log({ data, movies});
