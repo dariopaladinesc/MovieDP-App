@@ -18,6 +18,7 @@ const api = axios.create({
     },
 }); 
 
+
 async function getTrendingPreview(){
     const { data } = await api("trending/movie/day")
 
@@ -57,7 +58,7 @@ async function getTrendingPreview(){
     
 }
 
-getTrendingPreview();
+// getTrendingPreview();
 
 
 
@@ -81,4 +82,4 @@ async function getCategoriesPreview(){
     
 }
 
-getCategoriesPreview()
+// getCategoriesPreview() Comentamos la ejecucion de las FN ya que las estamos mandando a llamar al momento de que estemos en la pagina adecuada(revisar) 
