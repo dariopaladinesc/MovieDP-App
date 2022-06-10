@@ -1,4 +1,4 @@
-//ejecutmos la funcion navigator cuando exista un cambio en el hash con el metodo haschange
+//ejecutmos la funcion navigator cuando exista un cambio en el hash con el metodo haschange. Es decir cuando hay cambio de link entra la funcion navigator la cual realiza la comparacion para de acuerdo a eso redireccionar la pagina
 window.addEventListener("hashchange", navigator, false)  
 window.addEventListener("DOMContentLoaded", navigator, false)
 
@@ -20,7 +20,7 @@ function navigator(){
 
 function homePage(){
     console.log("Volvemos al home")
-    getTrendingPreview(); //mandamos a llamar las fn´s aqui ya que estas se ejecutarán solo al momento que nos encontremos en la pagina home eso se visualiza con el hash
+    getTrendingPreview(); //mandamos a llamar las fn´s aqui ya que estas se ejecutarán solo al momento que nos encontremos en la pagina home eso se visualiza con el hash (estas fn se encuentran en main.js)
     getCategoriesPreview();
 }
 function categoriesPage(){
