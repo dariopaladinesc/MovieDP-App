@@ -12,7 +12,7 @@
 </head>
 <body>
     <header class="principal-header"> <!-- HEADER SECTION -->
-        <nav class="principal-nav fixed">
+        <nav class="principal-nav">  <!--clase fixed es para la barra de navegacion en el movie description-->
             <div class="nav-logo--container">
                 <img src="./app-logo.png" alt="">
             </div>
@@ -26,115 +26,113 @@
                 <input type="text">
                 <button>
                     <img src="./lupa.svg" alt=""> 
-                </button>
-               
+                </button>      
             </div>
         </nav>
     </header>
     <main>
-   <section class="GeneralDescription-Movie__Container">    <!-- MOVIE DESCRIPTION SECTION -->
-        <section class="movieSection">
-            <button class="">
-                <img src="./flechas-izquierda.png"  alt="">
-            </button>
-            
+        <section class="GeneralDescription-Movie__Container inactive">    <!-- MOVIE DESCRIPTION SECTION -->
+             <section class="movieSection">
+                 <button class="">
+                     <img src="./flechas-izquierda.png"  alt="">
+                 </button>
+
+             </section>
+             <section class="movieSection-MoviesContainer">
+                 <div class="movieSection-MoviesContainer--titleMovie">
+                     <h2>Rapidos y Furiosos 4 </h2>
+                     <span>⭐ 7.8</span>
+                 </div>
+                 <p>El ex convicto Dominic Toretto se une a su viejo adversario, Brian O'Conner, que ahora trabaja para el FBI en Los Ángeles, con el fin de infiltrarse en una organización criminal que se dedica a introducir heroína en la ciudad.</p> 
+                 <article class="categories-section__movieDescription">
+                     <h3 color="white">Categories</h3>
+                     <div class="categories-section--listMovie">
+                         <button class="boton">Action</button>
+                         <button class="boton">Romance</button>
+                         <button class="boton">Terror</button>
+                         <button class="boton">Suspenso</button>
+                         <button class="boton">Novelas</button>
+                     </div>
+                 </article>
+                 <h3 class="similares">Similares</h3>
+                 <section class="similarSection">
+                     <div class="figure-container--movie-list">  <!--movie container -->
+                         <img  height="170px" class="imgMovie" src="./siniestra.png" alt="">
+                         <div class="description-movie">
+                             <p class="titleOfMovie">Shutter Island</p>
+                         </div>      
+                     </div>
+                     <div class="figure-container--movie-list">  <!--movie container -->
+                         <img  height="170px" class="imgMovie" src="./siniestra.png" alt="">
+                         <div class="description-movie">
+                             <p class="titleOfMovie">Shutter Island</p>
+                         </div>      
+                     </div>
+                     <div class="figure-container--movie-list">  <!--movie container -->
+                         <img height="170px" class="imgMovie" src="./siniestra.png" alt="">
+                         <div class="description-movie">
+                             <p class="titleOfMovie">Shutter Island</p>
+                         </div>      
+                     </div>    
+                     </div>
+                 </section>
+             </section>
         </section>
-        <section class="movieSection-MoviesContainer">
-            <div class="movieSection-MoviesContainer--titleMovie">
-                <h2>Rapidos y Furiosos 4 </h2>
-                <span>⭐ 7.8</span>
-            </div>
-            <p>El ex convicto Dominic Toretto se une a su viejo adversario, Brian O'Conner, que ahora trabaja para el FBI en Los Ángeles, con el fin de infiltrarse en una organización criminal que se dedica a introducir heroína en la ciudad.</p> 
-            <article class="categories-section__movieDescription">
+        <section class="homeSection">    <!--HOME SECTION-->
+            <section class="principal-main-section">
+                <div class="section-movie-description">
+                    <h2>Fast & Furious 4</h2>
+                    <p>Dominic Toreto y Brian O'conner en una nueva saga de rapidos y furiosos en la lucha contra el mal</p>
+                    <div class="main-section--buttons-container">
+                        <button class="play-button">▶</button>
+                        <button class="favorites-button">Favoritos</button>
+                    </div> 
+                </div>
+            </section>
+            <section class="trend-section">
+                <article id="trend-section-container">
+                    <div class="title-section">
+                        <h3>Tendencias</h3>
+                        <button> Ver más</button>
+                    </div>
+                    <div class="trend-container-figures">
+                        <div class="figure-container--movie-list">  <!--movie container -->
+                            <img class="imgMovie" src="./siniestra.png" alt="">
+                            <div class="description-movie">
+                                <p class="titleOfMovie">Shutter Island</p>
+                                <p class="rate">⭐⭐⭐⭐</p>
+                            </div>      
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <section class="view-section ">
+                <div id="trend-section-container">
+                    <h3>Seguir Viendo</h3>
+                    <div class="trend-container-figures">
+                        <div class="figure-container--movie-list">
+                            <img class="imgMovie" src="./siniestra.png" alt="">
+                            <div class="description-movie">
+                                <p class="titleOfMovie">Shutter Island</p>
+                                <p class="rate">⭐⭐⭐⭐</p>
+                            </div>      
+                        </div>    
+                    </div>
+                </div>
+            </section>
+            <section class="categories-section">
                 <h3 color="white">Categories</h3>
-                <div class="categories-section--listMovie">
+                <div class="categories-section--list">
                     <button class="boton">Action</button>
                     <button class="boton">Romance</button>
-                    <button class="boton">Terror</button>
-                    <button class="boton">Suspenso</button>
-                    <button class="boton">Novelas</button>
-                </div>
-            </article>
-            <h3 class="similares">Similares</h3>
-            <section class="similarSection">
-                <div class="figure-container--movie-list">  <!--movie container -->
-                    <img  height="170px" class="imgMovie" src="./siniestra.png" alt="">
-                    <div class="description-movie">
-                        <p class="titleOfMovie">Shutter Island</p>
-                    </div>      
-                </div>
-                <div class="figure-container--movie-list">  <!--movie container -->
-                    <img  height="170px" class="imgMovie" src="./siniestra.png" alt="">
-                    <div class="description-movie">
-                        <p class="titleOfMovie">Shutter Island</p>
-                    </div>      
-                </div>
-                <div class="figure-container--movie-list">  <!--movie container -->
-                    <img height="170px" class="imgMovie" src="./siniestra.png" alt="">
-                    <div class="description-movie">
-                        <p class="titleOfMovie">Shutter Island</p>
-                    </div>      
-                </div>    
                 </div>
             </section>
         </section>
-    </section>
-    <section class="homeSection inactive">    <!--HOME SECTION-->
-        <section class="principal-main-section">
-            <div class="section-movie-description">
-                <h2>Fast & Furious 4</h2>
-                <p>Dominic Toreto y Brian O'conner en una nueva saga de rapidos y furiosos en la lucha contra el mal</p>
-                <div class="main-section--buttons-container">
-                    <button class="play-button">▶</button>
-                    <button class="favorites-button">Favoritos</button>
-                </div> 
-            </div>
-        </section>
-        <section class="trend-section">
-            <article id="trend-section-container">
-                <div class="title-section">
-                    <h3>Tendencias</h3>
-                    <button> Ver más</button>
-                </div>
-                <div class="trend-container-figures">
-                    <div class="figure-container--movie-list">  <!--movie container -->
-                        <img class="imgMovie" src="./siniestra.png" alt="">
-                        <div class="description-movie">
-                            <p class="titleOfMovie">Shutter Island</p>
-                            <p class="rate">⭐⭐⭐⭐</p>
-                        </div>      
-                    </div>
-                </div>
-            </article>
-        </section>
-        <section class="view-section ">
-            <div id="trend-section-container">
-                <h3>Seguir Viendo</h3>
-                <div class="trend-container-figures">
-                    <div class="figure-container--movie-list">
-                        <img class="imgMovie" src="./siniestra.png" alt="">
-                        <div class="description-movie">
-                            <p class="titleOfMovie">Shutter Island</p>
-                            <p class="rate">⭐⭐⭐⭐</p>
-                        </div>      
-                    </div>    
-                </div>
-            </div>
-        </section>
-        <section class="categories-section">
-            <h3 color="white">Categories</h3>
-            <div class="categories-section--list">
-                <button class="boton">Action</button>
-                <button class="boton">Romance</button>
-            </div>
-        </section>
-    </section>
-        
     </main>
     <footer>
-
     </footer>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./src/node.js"></script>
     <script src="./src/main.js"></script>
     <script src="./src/navigation.js"></script>
 </body>

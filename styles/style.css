@@ -165,7 +165,6 @@ html{
 }
 .trend-container-figures .figure-container--movie-list .description-movie p{
     color: white;
-    margin-top: 5px;
     line-height: 15px;
     font-weight: 300;
 }
@@ -274,13 +273,13 @@ html{
 
 /* INACTIVE DISPLAY*/
 
- .inactive{
+.inactive{
      display: none;
-    }
+}
 
-     .fixed{ /* para colocar la barra de busqueda en el home section */
+.fixed{ /* para colocar la barra de busqueda en el home section */
         position: fixed;
         top:0;
-    }
+}
  
  

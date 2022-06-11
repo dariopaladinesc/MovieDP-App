@@ -20,6 +20,9 @@ function navigator(){
 
 function homePage(){
     console.log("Volvemos al home")
+    principalheader.classList.add("principal-header")
+    generalDescription.classList.add("inactive");
+    homeSection.classList.add("homeSection");
     getTrendingPreview(); //mandamos a llamar las fn´s aqui ya que estas se ejecutarán solo al momento que nos encontremos en la pagina home eso se visualiza con el hash (estas fn se encuentran en main.js)
     getCategoriesPreview();
 }
@@ -30,6 +33,7 @@ function searchPage(){
     console.log("Estamos en search")
 }
 function moviePage(){
+
     console.log("Estamos en movie")
 }
 function trendsPage(){

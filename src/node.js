@@ -12,6 +12,7 @@ const navSearch = document.querySelector(".nav-search");
 
 /*   MOVIE DESCRIPTION  */
 
+const generalDescription = document.querySelector(".GeneralDescription-Movie__Container")
 const movieSection = document.querySelector(".movieSection");
 const movieSection_movieContainer = document.querySelector(".movieSection-MoviesContainer");
 const titleMovieContainer = document.querySelector(".movieSection-MoviesContainer--titleMovie");
