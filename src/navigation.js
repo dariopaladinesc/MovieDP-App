@@ -33,7 +33,10 @@ function searchPage(){
     console.log("Estamos en search")
 }
 function moviePage(){
-
+    principalheader.classList.add("principal-header");
+    principalnav.classList.add("fixed")
+    generalDescription.classList.remove("inactive");
+    homeSection.classList.add("inactive");
     console.log("Estamos en movie")
 }
 function trendsPage(){
