@@ -1,4 +1,6 @@
 //ejecutmos la funcion navigator cuando exista un cambio en el hash con el metodo haschange. Es decir cuando hay cambio de link entra la funcion navigator la cual realiza la comparacion para de acuerdo a eso redireccionar la pagina
+//Para que el programa funcione tiene que empezar el html en el home section es decir con las clases de movie description en inactive y partiendo de ahi JS ira agregando y quitando dinamicamente las clases en funcion del hash de location
+
 window.addEventListener("hashchange", navigator, false)  
 window.addEventListener("DOMContentLoaded", navigator, false)
 
@@ -9,7 +11,7 @@ function navigator(){
     }else if ((location.hash.startsWith("#search="))){
         searchPage()
     }else if ((location.hash.startsWith("#movie="))){
-        moviePage()
+        moviePageDescription()
     }else if ((location.hash.startsWith("#categories="))){
         categoriesPage();
     }else{
@@ -22,7 +24,8 @@ function homePage(){
     console.log("Volvemos al home")
     principalheader.classList.add("principal-header")
     generalDescription.classList.add("inactive");
-    homeSection.classList.add("homeSection");
+    principalnav.classList.remove("fixed")
+    homeSection.classList.remove("inactive")
     getTrendingPreview(); //mandamos a llamar las fn´s aqui ya que estas se ejecutarán solo al momento que nos encontremos en la pagina home eso se visualiza con el hash (estas fn se encuentran en main.js)
     getCategoriesPreview();
 }
@@ -32,8 +35,8 @@ function categoriesPage(){
 function searchPage(){
     console.log("Estamos en search")
 }
-function moviePage(){
-    principalheader.classList.add("principal-header");
+function moviePageDescription(){
+    principalheader.classList.add("principal-header")
     principalnav.classList.add("fixed")
     generalDescription.classList.remove("inactive");
     homeSection.classList.add("inactive");

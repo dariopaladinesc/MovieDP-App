@@ -12,7 +12,7 @@
 </head>
 <body>
     <header class="principal-header"> <!-- HEADER SECTION -->
-        <nav class="principal-nav fixed">  <!--clase fixed es para la barra de navegacion en el movie description-->
+        <nav class="principal-nav">  <!--clase fixed es para la barra de navegacion en el movie description-->
             <div class="nav-logo--container">
                 <img src="./app-logo.png" alt="">
             </div>
@@ -31,7 +31,7 @@
         </nav>
     </header>
     <main>
-        <section class="GeneralDescription-Movie__Container">    <!-- MOVIE DESCRIPTION SECTION -->
+        <section class="GeneralDescription-Movie__Container inactive">    <!-- MOVIE DESCRIPTION SECTION -->
              <section class="movieSection">
                  <button class="flecha">
                      <img src="./flechas-izquierda.png"  alt="">
@@ -77,7 +77,7 @@
                  </section>
              </section>
         </section>
-        <section class="homeSection inactive">    <!--HOME SECTION-->
+        <section class="homeSection">    <!--HOME SECTION-->
             <section class="principal-main-section">
                 <div class="section-movie-description">
                     <h2>Fast & Furious 4</h2>
@@ -126,14 +126,13 @@
                     <button class="boton">Romance</button>
                 </div>
             </section>
-        </section>
-           
+        </section>      
     </main>
     <footer>
     </footer>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./src/main.js"></script>
-    <script src="./src/node.js"></script>
     <script src="./src/navigation.js"></script>
+    <script src="./src/node.js"></script>
 </body>
 </html>
