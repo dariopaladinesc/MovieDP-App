@@ -21,15 +21,21 @@ function navigator(){
 }
 
 function homePage(){
-    console.log("Volvemos al home")
     principalheader.classList.add("principal-header")
-    generalDescription.classList.add("inactive");
     principalnav.classList.remove("fixed")
-    homeSection.classList.remove("inactive")
+    generalDescription.classList.add("inactive");
+    homeSection.classList.remove("inactive");
+    categorySection.classList.add("inactive");
+    console.log("Volvemos al home")
     getTrendingPreview(); //mandamos a llamar las fn´s aqui ya que estas se ejecutarán solo al momento que nos encontremos en la pagina home eso se visualiza con el hash (estas fn se encuentran en main.js)
     getCategoriesPreview();
 }
 function categoriesPage(){
+    principalheader.classList.add("principal-header")
+    principalnav.classList.remove("fixed")
+    generalDescription.classList.add("inactive");
+    homeSection.classList.add("inactive");
+    categorySection.classList.remove("inactive")
     console.log("Estamos en Categories")
 }
 function searchPage(){
@@ -40,6 +46,7 @@ function moviePageDescription(){
     principalnav.classList.add("fixed")
     generalDescription.classList.remove("inactive");
     homeSection.classList.add("inactive");
+    categorySection.classList.add("inactive")
     console.log("Estamos en movie")
 }
 function trendsPage(){

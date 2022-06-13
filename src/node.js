@@ -37,4 +37,7 @@ const viewContainerFigures = document.querySelector(".trend-container-figures");
 const categoriesSectionView = document.querySelector(".categories-section");
 
 
+/*   CATEGORY SECTION   */
 
+const categorySection = document.querySelector(".category-section");
+const previewcategories = document.querySelector(".previewCategories_container");
