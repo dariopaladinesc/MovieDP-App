@@ -208,17 +208,17 @@ html{
     width: 100%;
     height: 470px;
     background-image: url(/cartelera.png);
-    background-size:100% 100% !important;
+    background-size:100% 100%;
     background-repeat: no-repeat;
     position: fixed;
     top:40px;
 }
-.GeneralDescription-Movie__Container .movieSection button img{
+ .flecha img{
     width: 35px;
     height: 30px;
     padding:3px 0px 0px 0px
 }
-.GeneralDescription-Movie__Container .movieSection button{
+ .flecha{
     margin: 20px 15px;
     background-color: var(--principal-color);
     border-radius: 40%;
