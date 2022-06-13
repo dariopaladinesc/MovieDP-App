@@ -45,3 +45,9 @@ const titleCategory = document.querySelector(".title-category");
 const secondCategory = document.querySelector(".secondcategory")
 const container2 = document.querySelector(".container2");
 const titleTrends = document.querySelector(".titleTrends")
+
+
+/*  BUTTONS   */
+
+const verMas = document.querySelector("#verMas"); // #verMas es el boton
+const flecha = document.querySelector(".flecha ");

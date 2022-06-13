@@ -1,6 +1,14 @@
 //ejecutmos la funcion navigator cuando exista un cambio en el hash con el metodo haschange. Es decir cuando hay cambio de link entra la funcion navigator la cual realiza la comparacion para de acuerdo a eso redireccionar la pagina
 //Para que el programa funcione tiene que empezar el html en el home section es decir con las clases de movie description en inactive y partiendo de ahi JS ira agregando y quitando dinamicamente las clases en funcion del hash de location
 
+verMas.addEventListener("click", () => {
+    location.hash = "trends="
+})
+
+flecha.addEventListener("click", () => {
+    location.hash = "home="
+})
+
 window.addEventListener("hashchange", navigator, false)  
 window.addEventListener("DOMContentLoaded", navigator, false)
 
@@ -61,6 +69,5 @@ function trendsPage(){
     titleCategory.classList.add("inactive")
     container2.classList.add("inactive")
     secondCategory.classList.add("inactive");
-    
     console.log("Estamos en trends")
 }
