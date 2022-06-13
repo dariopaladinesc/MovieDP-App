@@ -225,7 +225,7 @@ html{
     border: none;
     cursor: pointer;
 }
-.GeneralDescription-Movie__Container .movieSection button:hover{
+ .flecha:hover{
     background-color: var(--secondary-color)
 }
 .movieSection-MoviesContainer{
@@ -277,13 +277,17 @@ html{
 }
 .category-section h2{
     color: white;
+    margin: 0px 15px;
+}
+.category-section h3{
+    color: white;
     margin: 40px 15px 0px 15px;
 }
 .previewCategories_container{
     display: flex;
     width: 100%;
     overflow-x:scroll;
-    margin: 20px 5px;
+    margin: 5px;
 }
 .previewCategories_container img{
     height: 170px;
@@ -291,6 +295,9 @@ html{
     border-radius: 5px;
 }
 
+.container1{
+    flex-wrap: wrap;
+}
 
 
 

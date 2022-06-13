@@ -6,7 +6,7 @@ window.addEventListener("DOMContentLoaded", navigator, false)
 
 function navigator(){
     console.log(location);
-    if (location.hash.startsWith("#trends")){  //estamos prguntando si el "hash" que esta dentro de "location" empieza con "trends" en la url entonces realize X accion
+    if (location.hash.startsWith("#trends=")){  //estamos prguntando si el "hash" que esta dentro de "location" empieza con "trends" en la url entonces realize X accion
         trendsPage()
     }else if ((location.hash.startsWith("#search="))){
         searchPage()
@@ -17,7 +17,7 @@ function navigator(){
     }else{
         homePage();
     }
-    location.hash
+
 }
 
 function homePage(){
@@ -36,6 +36,9 @@ function categoriesPage(){
     generalDescription.classList.add("inactive");
     homeSection.classList.add("inactive");
     categorySection.classList.remove("inactive")
+    titleCategory.classList.remove("inactive")
+    container2.classList.remove("inactive")
+    secondCategory.classList.remove("inactive")
     console.log("Estamos en Categories")
 }
 function searchPage(){
@@ -50,5 +53,14 @@ function moviePageDescription(){
     console.log("Estamos en movie")
 }
 function trendsPage(){
+    principalheader.classList.add("principal-header")
+    principalnav.classList.remove("fixed")
+    generalDescription.classList.add("inactive");
+    homeSection.classList.add("inactive");
+    categorySection.classList.remove("inactive");
+    titleCategory.classList.add("inactive")
+    container2.classList.add("inactive")
+    secondCategory.classList.add("inactive");
+    
     console.log("Estamos en trends")
 }
