@@ -12,9 +12,10 @@
 html{
     font-family: "Baloo 2", cursive;
     line-height: 20px;
-    background:linear-gradient(to top,  #9a91c4, #141414 80%) 
-
+    background:linear-gradient(to top,  #9a91c4, #141414) ;
+    
 }
+
 
 
 /* HEADER*/
@@ -151,9 +152,6 @@ html{
 }
 .trend-container-figures .figure-container--movie-list{
     display: grid;
-    justify-items: center;
-    
-    margin: 10px 5px;
 }
 .trend-container-figures .figure-container--movie-list .description-movie{
     display: grid;
@@ -167,6 +165,8 @@ html{
     color: white;
     line-height: 15px;
     font-weight: 300;
+    margin-bottom: 5px;
+    padding:0px 5px 0px 7px;
 }
 .trend-container-figures .figure-container--movie-list .description-movie .rate{
     color: black;
@@ -237,7 +237,7 @@ html{
     border-top-right-radius: 25px;
     border-top-left-radius: 25px;
     width: 100%;
-}
+}category
 .movieSection-MoviesContainer .movieSection-MoviesContainer--titleMovie{
     width: 90%;
     display: flex;
@@ -270,11 +270,34 @@ html{
 }
 
 
+/*   CATEGORY SECTION   */
+
+.category-section .Fizquierda{
+    margin: 25px 15px
+}
+.category-section h2{
+    color: white;
+    margin: 40px 15px 0px 15px;
+}
+.previewCategories_container{
+    display: flex;
+    width: 100%;
+    overflow-x:scroll;
+    margin: 20px 5px;
+}
+.previewCategories_container img{
+    height: 170px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+
+
 
 /* INACTIVE DISPLAY*/
 
 .inactive{
-     display: none;
+     display: none !important;
 }
 
 .fixed{ /* para colocar la barra de busqueda en el home section */
