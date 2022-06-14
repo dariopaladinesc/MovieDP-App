@@ -28,6 +28,7 @@ function navigator(){
 
 }
 
+
 function homePage(){
     principalheader.classList.add("principal-header")
     principalnav.classList.remove("fixed")
@@ -50,6 +51,7 @@ function categoriesPage(){
 
     const [_ , categoryData] =  location.hash.split('=')  //estamos separando 2 element. por un lado el category, id-name con el metodo del array split. De esta forma con ECMA6+ al devolvernos 2 variables las colocamos directamente en el array. En "_" se almacena el hash #category= y en el "categorydata" se almacena "5125-action" el id y el nombre al que pertenece 
     const [categoryId, categoryName] = categoryData.split("-")
+    titleTrends.innerHTML = (categoryName)
     getMovieCategory(categoryId)
 }
 

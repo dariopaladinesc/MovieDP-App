@@ -23,7 +23,6 @@ async function getTrendingPreview(){
     const { data } = await api("trending/movie/day")
 
     const movies = data.results;
-    console.log({ data, movies});
     const trendingPreview = document.querySelector("#trend-section-container .trend-container-figures");
     trendingPreview.innerHTML = " "; 
 
@@ -69,7 +68,6 @@ async function getCategoriesPreview(){
     const data = await res.json();
 
     const categories = data.genres;
-    console.log(data, categories);
     const categoriesPreview = document.querySelector(".categories-section .categories-section--list")
     categoriesPreview.innerHTML = " "   // C/vez que se accede a otra pagina al regresar al home se duplican las categorias, por lo que con esta linea primero eliminamos y luego se hace la peticion a la API
 
@@ -101,7 +99,6 @@ async function getMovieCategory(id){
     const movies = data.results;
     const movieCategory = document.querySelector(".category-section .previewCategories_container");
     movieCategory.innerHTML = " "; 
-    
     movies.forEach(movie => {
         //DOM (Buscar Notas)
         const movieImg = document.createElement("img"); 
