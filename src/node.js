@@ -50,4 +50,4 @@ const titleTrends = document.querySelector(".titleTrends")
 /*  BUTTONS   */
 
 const verMas = document.querySelector("#verMas"); // #verMas es el boton
-const flecha = document.querySelector(".flecha ");
+// const flecha = document.querySelector(".flecha ");

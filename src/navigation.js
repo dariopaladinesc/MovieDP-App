@@ -5,9 +5,9 @@ verMas.addEventListener("click", () => {
     location.hash = "trends="
 })
 
-flecha.addEventListener("click", () => {
-    location.hash = "home="
-})
+// flecha.addEventListener("click", () => {
+//     location.hash = "home="
+// })
 
 window.addEventListener("hashchange", navigator, false)  
 window.addEventListener("DOMContentLoaded", navigator, false)

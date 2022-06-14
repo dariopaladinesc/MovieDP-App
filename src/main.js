@@ -24,9 +24,11 @@ async function getTrendingPreview(){
 
     const movies = data.results;
     console.log({ data, movies});
+    const trendingPreview = document.querySelector("#trend-section-container .trend-container-figures");
+    trendingPreview.innerHTML = " "; 
+    
     movies.forEach(movie => {
         //DOM (Buscar Notas)
-        const trendingPreview = document.querySelector("#trend-section-container .trend-container-figures")
 
         const movieContainer = document.createElement("div"); //Esto nos permite crear una nueva etiqueta div
         movieContainer.classList.add("figure-container--movie-list"); //le agregamos la clase de esta misma etiqueta, misma clase que esta en el html
@@ -68,9 +70,10 @@ async function getCategoriesPreview(){
 
     const categories = data.genres;
     console.log(data, categories);
-    categories.forEach(category => {
-        const categoriesPreview = document.querySelector(".categories-section .categories-section--list")
+    const categoriesPreview = document.querySelector(".categories-section .categories-section--list")
+    categoriesPreview.innerHTML = " " // C/vez que se accede a otra pagina al regresar al home se duplican las categorias, por lo que con esta linea primero eliminamos y luego se hace la peticion a la API
 
+    categories.forEach(category => {
         const categoryButton = document.createElement("button"); 
         categoryButton.classList.add("boton");
         const contentBotton = document.createTextNode(category.name)
