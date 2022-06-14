@@ -26,7 +26,7 @@ async function getTrendingPreview(){
     console.log({ data, movies});
     const trendingPreview = document.querySelector("#trend-section-container .trend-container-figures");
     trendingPreview.innerHTML = " "; 
-    
+
     movies.forEach(movie => {
         //DOM (Buscar Notas)
 
@@ -71,11 +71,14 @@ async function getCategoriesPreview(){
     const categories = data.genres;
     console.log(data, categories);
     const categoriesPreview = document.querySelector(".categories-section .categories-section--list")
-    categoriesPreview.innerHTML = " " // C/vez que se accede a otra pagina al regresar al home se duplican las categorias, por lo que con esta linea primero eliminamos y luego se hace la peticion a la API
+    categoriesPreview.innerHTML = " "   // C/vez que se accede a otra pagina al regresar al home se duplican las categorias, por lo que con esta linea primero eliminamos y luego se hace la peticion a la API
 
     categories.forEach(category => {
         const categoryButton = document.createElement("button"); 
         categoryButton.classList.add("boton");
+        categoryButton.addEventListener("click", () => {
+            location.hash = "#categories=" + category.id + "-" + category.name;
+        })
         const contentBotton = document.createTextNode(category.name)
 
         //APENDCHILD (buscar en notas)
@@ -86,3 +89,27 @@ async function getCategoriesPreview(){
 }
 
 // getCategoriesPreview() Comentamos la ejecucion de las FN ya que las estamos mandando a llamar al momento de que estemos en la pagina adecuada(revisar) 
+
+
+async function getMovieCategory(id){
+    const { data } = await api("discover/movie", {
+        params: {
+            with_genres: id,
+        }
+    })
+
+    const movies = data.results;
+    const movieCategory = document.querySelector(".category-section .previewCategories_container");
+    movieCategory.innerHTML = " "; 
+    
+    movies.forEach(movie => {
+        //DOM (Buscar Notas)
+        const movieImg = document.createElement("img"); 
+        movieImg.classList.add("imagen");
+        movieImg.setAttribute("alt", movie.title);
+        movieImg.setAttribute("src", "https://image.tmdb.org/t/p/w300" + movie.poster_path);
+        //APENDCHILD (buscar en notas)
+        movieCategory.appendChild(movieImg);     
+    })
+    
+}

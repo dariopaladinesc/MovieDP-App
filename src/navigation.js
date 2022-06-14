@@ -38,6 +38,7 @@ function homePage(){
     getTrendingPreview(); //mandamos a llamar las fn´s aqui ya que estas se ejecutarán solo al momento que nos encontremos en la pagina home eso se visualiza con el hash (estas fn se encuentran en main.js)
     getCategoriesPreview();
 }
+
 function categoriesPage(){
     principalheader.classList.add("principal-header")
     principalnav.classList.remove("fixed")
@@ -45,13 +46,17 @@ function categoriesPage(){
     homeSection.classList.add("inactive");
     categorySection.classList.remove("inactive")
     titleCategory.classList.remove("inactive")
-    container2.classList.remove("inactive")
-    secondCategory.classList.remove("inactive")
-    console.log("Estamos en Categories")
+    console.log("Estamos en Categories");
+
+    const [_ , categoryData] =  location.hash.split('=')  //estamos separando 2 element. por un lado el category, id-name con el metodo del array split. De esta forma con ECMA6+ al devolvernos 2 variables las colocamos directamente en el array. En "_" se almacena el hash #category= y en el "categorydata" se almacena "5125-action" el id y el nombre al que pertenece 
+    const [categoryId, categoryName] = categoryData.split("-")
+    getMovieCategory(categoryId)
 }
+
 function searchPage(){
     console.log("Estamos en search")
 }
+
 function moviePageDescription(){
     principalheader.classList.add("principal-header")
     principalnav.classList.add("fixed")
@@ -60,6 +65,7 @@ function moviePageDescription(){
     categorySection.classList.add("inactive")
     console.log("Estamos en movie")
 }
+
 function trendsPage(){
     principalheader.classList.add("principal-header")
     principalnav.classList.remove("fixed")
@@ -67,7 +73,5 @@ function trendsPage(){
     homeSection.classList.add("inactive");
     categorySection.classList.remove("inactive");
     titleCategory.classList.add("inactive")
-    container2.classList.add("inactive")
-    secondCategory.classList.add("inactive");
     console.log("Estamos en trends")
 }

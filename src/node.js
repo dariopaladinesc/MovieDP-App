@@ -42,8 +42,6 @@ const categoriesSectionView = document.querySelector(".categories-section");
 const categorySection = document.querySelector(".category-section");
 const previewcategories = document.querySelector(".previewCategories_container");
 const titleCategory = document.querySelector(".title-category");
-const secondCategory = document.querySelector(".secondcategory")
-const container2 = document.querySelector(".container2");
 const titleTrends = document.querySelector(".titleTrends")
 
 

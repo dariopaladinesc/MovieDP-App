@@ -272,24 +272,24 @@ html{
 
 /*   CATEGORY SECTION   */
 
-.category-section .Fizquierda{
-    margin: 25px 15px
-}
 .category-section h2{
     color: white;
     margin: 0px 15px;
+}
+.category-section .Fizquierda{
+    margin: 25px 15px
+}
+.previewCategories_container{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .category-section h3{
     color: white;
     margin: 40px 15px 0px 15px;
 }
-.previewCategories_container{
-    display: flex;
-    width: 100%;
-    overflow-x:scroll;
-    margin: 5px;
-}
-.previewCategories_container img{
+.previewCategories_container .imagen{
     height: 170px;
     margin: 5px;
     border-radius: 5px;
