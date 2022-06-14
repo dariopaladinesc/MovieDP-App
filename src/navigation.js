@@ -51,8 +51,10 @@ function categoriesPage(){
 
     const [_ , categoryData] =  location.hash.split('=')  //estamos separando 2 element. por un lado el category, id-name con el metodo del array split. De esta forma con ECMA6+ al devolvernos 2 variables las colocamos directamente en el array. En "_" se almacena el hash #category= y en el "categorydata" se almacena "5125-action" el id y el nombre al que pertenece 
     const [categoryId, categoryName] = categoryData.split("-")
-    titleTrends.innerHTML = (categoryName)
+    const titleModified = decodeURI(categoryName) // cuando traes el nombre de la url si tiene espacios lo rellena con %20 en html, "decodeURI" elimina ese % y pone como va realmente 
+    titleTrends.innerHTML = (titleModified);
     getMovieCategory(categoryId)
+    window.scrollTo(0, 0);
 }
 
 function searchPage(){
