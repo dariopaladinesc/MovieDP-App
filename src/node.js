@@ -43,12 +43,14 @@ const categoriesSectionView = document.querySelector(".categories-section");
 const categorySection = document.querySelector(".category-section");
 const previewcategories = document.querySelector(".previewCategories_container");
 const titleCategory = document.querySelector(".title-category");
-const titleTrends = document.querySelector(".titleTrends")
+const titleTrends = document.querySelector(".category-section .titleTrends")
+
 
 
 /*     SEARCH SECTION  */
 
 const searchSection = document.querySelector(".search-section")
+const titleTrends1 = document.querySelector(".search-section .titleTrends")
 
 /*  BUTTONS   */
 

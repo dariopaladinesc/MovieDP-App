@@ -11,10 +11,10 @@ flecha1.addEventListener("click", () => {
     location.hash = "home="
 })
 flecha2.addEventListener("click", () => {
-    location.hash = "home="
+    location.hash = "home="  //window.history.back()  <- esta sirve para guardar el historia de busqueda en el nav
 })
 searchButton.addEventListener("click", () => {
-    location.hash = "#search=" + searchInput.value;
+    location.hash = `#search=${searchInput.value}`
 })
 
 window.addEventListener("hashchange", navigator, false)  
@@ -74,10 +74,11 @@ function searchPage(){
     homeSection.classList.add("inactive");
     categorySection.classList.add("inactive");
     titleCategory.classList.add("inactive");
-    titleTrends.classList.add("inactive")
+    
     //   [#search, "platzi"]
     const [_ , query] =  location.hash.split('=');
     getMovieSearch(query);
+    titleTrends1.innerHTML = "Resultados de: " + query;
     console.log("Estamos en search")
 }
 
@@ -99,5 +100,6 @@ function trendsPage(){
     categorySection.classList.remove("inactive");
     titleTrends.classList.add("inactive");
     searchSection.classList.add("inactive")
-    console.log("Estamos en trends")
+    console.log("Estamos en trends");
+    getTrends();
 }

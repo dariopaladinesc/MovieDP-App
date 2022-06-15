@@ -58,9 +58,29 @@ async function getTrendingPreview(){
     })
     
 }
-
 // getTrendingPreview();
 
+async function getTrends(){
+    const { data } = await api("trending/movie/day", {
+        params:{
+            "api_key": apiKey,
+        },
+    })
+
+    const movies = data.results;
+    const movieCategory = document.querySelector(".category-section .previewCategories_container");
+    movieCategory.innerHTML = " "; 
+    movies.forEach(movie => {
+        //DOM (Buscar Notas)
+        const movieImg = document.createElement("img"); 
+        movieImg.classList.add("imagen");
+        movieImg.setAttribute("alt", movie.title);
+        movieImg.setAttribute("src", "https://image.tmdb.org/t/p/w300" + movie.poster_path);
+        //APENDCHILD (buscar en notas)
+        movieCategory.appendChild(movieImg);     
+    })
+    
+}
 
 
 async function getCategoriesPreview(){
@@ -85,7 +105,6 @@ async function getCategoriesPreview(){
     })
     
 }
-
 // getCategoriesPreview() Comentamos la ejecucion de las FN ya que las estamos mandando a llamar al momento de que estemos en la pagina adecuada(revisar) 
 
 
