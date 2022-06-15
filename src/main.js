@@ -18,7 +18,10 @@ const api = axios.create({
     },
 }); 
 
-function principalMovie(MOVIES, container){
+//  +++++ REPEAT FUNCTIONS  +++++++
+
+//FN que hace el llamado a las peliculas. Parametro: "MOVIES"-> var donde esta almacenada el data.results. "container"-> es el contenedor donde se carga c/pelicula
+function principalMovie(MOVIES, container){  
     container.innerHTML = " ";    // C/vez que se accede a otra pagina al regresar al home se duplican las categorias, por lo que con esta linea primero eliminamos y luego se hace la peticion a la API
     MOVIES.forEach(movie => {
         const movieImg = document.createElement("img"); 
@@ -32,6 +35,31 @@ function principalMovie(MOVIES, container){
         })
     })
 }
+
+
+function CATEGORIES(CATEGORY, ContainerCat){
+  
+    ContainerCat.innerHTML = " " 
+    CATEGORY.forEach(category => {
+        const categoryButton = document.createElement("button"); 
+        categoryButton.classList.add("boton");
+        categoryButton.addEventListener("click", () => {
+            location.hash = "#categories=" + category.id + "-" + category.name;
+        })
+        const contentBotton = document.createTextNode(category.name)
+
+        //APENDCHILD (buscar en notas)
+       categoryButton.appendChild(contentBotton);
+       ContainerCat.appendChild(categoryButton)
+    })   
+}
+
+
+
+//-----------------------------------------------------------//
+
+
+
 
 
 async function getTrendingPreview(){
@@ -79,26 +107,14 @@ async function getTrendingPreview(){
 }
 // getTrendingPreview();
 
+
 async function getCategoriesPreview(){
     const res = await fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=" + apiKey)
     const data = await res.json();
-
+    
     const categories = data.genres;
     const categoriesPreview = document.querySelector(".categories-section .categories-section--list")
-    categoriesPreview.innerHTML = " " 
-
-    categories.forEach(category => {
-        const categoryButton = document.createElement("button"); 
-        categoryButton.classList.add("boton");
-        categoryButton.addEventListener("click", () => {
-            location.hash = "#categories=" + category.id + "-" + category.name;
-        })
-        const contentBotton = document.createTextNode(category.name)
-
-        //APENDCHILD (buscar en notas)
-       categoryButton.appendChild(contentBotton);
-       categoriesPreview.appendChild(categoryButton)
-    })
+    CATEGORIES(categories, categoriesPreview)
     
 }
 // getCategoriesPreview() Comentamos la ejecucion de las FN ya que las estamos mandando a llamar al momento de que estemos en la pagina adecuada(revisar) 
@@ -125,21 +141,7 @@ async function getMovieCategory(id){
 
     const movies = data.results;
     const movieCategory = document.querySelector(".category-section .previewCategories_container");
-    movieCategory.innerHTML = " "; 
-    movies.forEach(movie => {
-        //DOM (Buscar Notas)
-        const movieImg = document.createElement("img"); 
-        movieImg.classList.add("imagen");
-        movieImg.setAttribute("alt", movie.title);
-        movieImg.setAttribute("src", "https://image.tmdb.org/t/p/w300" + movie.poster_path);
-        //APENDCHILD (buscar en notas)
-        movieCategory.appendChild(movieImg);  
-        
-        movieCategory.addEventListener("click", ()=>{ 
-            location.hash = "#movie=" + movie.id
-        })
-
-    })
+    principalMovie(movies, movieCategory)
     
 }
 
@@ -162,10 +164,13 @@ async function getMovieById(id){
             "api_key": apiKey,
         },
     })
-
+    console.log(movie)
+    
     titleMovie.innerHTML= movie.title;
     description.innerHTML= movie.overview;
-    vote.innerHTML= "⭐ " + movie.vote_average;
+    vote.innerHTML= "⭐ " + movie.vote_average; 
+  
+    CATEGORIES(movie.genres, listCategories)
 }
 
 

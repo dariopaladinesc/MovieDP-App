@@ -45,8 +45,9 @@ function homePage(){
     categorySection.classList.add("inactive");
     searchSection.classList.add("inactive")
     console.log("Volvemos al home")
-    getTrendingPreview(); //mandamos a llamar las fn´s aqui ya que estas se ejecutarán solo al momento que nos encontremos en la pagina home eso se visualiza con el hash (estas fn se encuentran en main.js)
+    
     getCategoriesPreview();
+    getTrendingPreview(); //mandamos a llamar las fn´s aqui ya que estas se ejecutarán solo al momento que nos encontremos en la pagina home eso se visualiza con el hash (estas fn se encuentran en main.js)
 }
 
 function categoriesPage(){
@@ -94,6 +95,7 @@ function moviePageDescription(){
     // [#movie, "4527"]
     const [_ , movieId] =  location.hash.split('=');
     getMovieById(movieId)
+   
 }
 
 function trendsPage(){
