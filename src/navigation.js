@@ -4,12 +4,17 @@
 verMas.addEventListener("click", () => {
     location.hash = "trends="
 })
-
 flecha.addEventListener("click", () => {
     location.hash = "home="
 })
 flecha1.addEventListener("click", () => {
     location.hash = "home="
+})
+flecha2.addEventListener("click", () => {
+    location.hash = "home="
+})
+searchButton.addEventListener("click", () => {
+    location.hash = "#search=" + searchInput.value;
 })
 
 window.addEventListener("hashchange", navigator, false)  
@@ -38,6 +43,7 @@ function homePage(){
     generalDescription.classList.add("inactive");
     homeSection.classList.remove("inactive");
     categorySection.classList.add("inactive");
+    searchSection.classList.add("inactive")
     console.log("Volvemos al home")
     getTrendingPreview(); //mandamos a llamar las fn´s aqui ya que estas se ejecutarán solo al momento que nos encontremos en la pagina home eso se visualiza con el hash (estas fn se encuentran en main.js)
     getCategoriesPreview();
@@ -50,17 +56,28 @@ function categoriesPage(){
     homeSection.classList.add("inactive");
     categorySection.classList.remove("inactive")
     titleCategory.classList.remove("inactive")
+    searchSection.classList.add("inactive")
     console.log("Estamos en Categories");
 
     const [_ , categoryData] =  location.hash.split('=')  //estamos separando 2 element. por un lado el category, id-name con el metodo del array split. De esta forma con ECMA6+ al devolvernos 2 variables las colocamos directamente en el array. En "_" se almacena el hash #category= y en el "categorydata" se almacena "5125-action" el id y el nombre al que pertenece 
     const [categoryId, categoryName] = categoryData.split("-")
     const titleModified = decodeURI(categoryName) // cuando traes el nombre de la url si tiene espacios lo rellena con %20 en html, "decodeURI" elimina ese % y pone como va realmente 
     titleTrends.innerHTML = (titleModified);
-    getMovieCategory(categoryId)
+    getMovieCategory(categoryId);
     window.scrollTo(0, 0);
 }
 
 function searchPage(){
+    principalheader.classList.add("principal-header")
+    principalnav.classList.remove("fixed")
+    generalDescription.classList.add("inactive");
+    homeSection.classList.add("inactive");
+    categorySection.classList.add("inactive");
+    titleCategory.classList.add("inactive");
+    titleTrends.classList.add("inactive")
+    //   [#search, "platzi"]
+    const [_ , query] =  location.hash.split('=');
+    getMovieSearch(query);
     console.log("Estamos en search")
 }
 
@@ -74,11 +91,13 @@ function moviePageDescription(){
 }
 
 function trendsPage(){
+    titleCategory.innerHTML= "Trends"
     principalheader.classList.add("principal-header")
     principalnav.classList.remove("fixed")
     generalDescription.classList.add("inactive");
     homeSection.classList.add("inactive");
     categorySection.classList.remove("inactive");
-    titleCategory.classList.add("inactive")
+    titleTrends.classList.add("inactive");
+    searchSection.classList.add("inactive")
     console.log("Estamos en trends")
 }

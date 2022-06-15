@@ -98,11 +98,12 @@ html{
     width: 70%;
     font-size: 12px;
     text-align: justify;
-    margin: 10px 0px 0px 0px;
+    margin: 5px 0px 0px 0px;
+    line-height: 11px;
 }
 .principal-main-section .main-section--buttons-container .play-button{
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     margin: 5px 15px;
     padding-left: 3px;
     background:linear-gradient(to right, var(--hard-color), var(--principal-color));
@@ -115,9 +116,9 @@ html{
     cursor: pointer;
 }
 .principal-main-section .main-section--buttons-container .favorites-button{
-    width: 80px;
+    width: 40px;
     height: 25px;
-    border-radius: 15px;
+    border-radius: 10px;
     background:linear-gradient(to bottom, var(--hard-color), var(--principal-color) );
     color:white;
     border: none;
@@ -274,7 +275,7 @@ html{
 
 .category-section h2{
     color: white;
-    margin: 0px 15px;
+    margin: 15px;
 }
 .category-section .Fizquierda{
     margin: 25px 15px

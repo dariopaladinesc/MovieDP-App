@@ -110,3 +110,25 @@ async function getMovieCategory(id){
     })
     
 }
+
+async function getMovieSearch(query){
+    const { data } = await api("search/movie", {
+        params: {
+            query, /// la propiedad en la docAPI se llama query y nuestro valor de esa propiedad tiene el mismo nombre, xloq es suf colocar directamente
+        }
+    })
+
+    const movies = data.results;
+    const searchSection = document.querySelector(".search-section .previewCategories_container")
+    searchSection.innerHTML = " "; 
+    movies.forEach(movie => {
+        //DOM (Buscar Notas)
+        const movieImg = document.createElement("img"); 
+        movieImg.classList.add("imagen");
+        movieImg.setAttribute("alt", movie.title);
+        movieImg.setAttribute("src", "https://image.tmdb.org/t/p/w300" + movie.poster_path);
+        //APENDCHILD (buscar en notas)
+        searchSection.appendChild(movieImg);     
+    })
+    
+}

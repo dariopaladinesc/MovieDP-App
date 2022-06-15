@@ -8,6 +8,7 @@ const principalnav = document.querySelector(".principal-nav");
 const navLogoContainer = document.querySelector(".principal-logo--container");
 const navSectionMovies = document.querySelector(".nav-section-movies");
 const navSearch = document.querySelector(".nav-search");
+const searchInput = document.querySelector(".search-input")
 
 
 /*   MOVIE DESCRIPTION  */
@@ -45,8 +46,14 @@ const titleCategory = document.querySelector(".title-category");
 const titleTrends = document.querySelector(".titleTrends")
 
 
+/*     SEARCH SECTION  */
+
+const searchSection = document.querySelector(".search-section")
+
 /*  BUTTONS   */
 
 const verMas = document.querySelector("#verMas"); // #verMas es el boton
 const flecha = document.querySelector(".flecha ");
 const flecha1 = document.querySelector(".category-section .Fizquierda");
+const flecha2 = document.querySelector(".search-section .btn")
+const searchButton = document.querySelector(".principal-header .search-button")
