@@ -164,15 +164,15 @@ async function getMovieById(id){
             "api_key": apiKey,
         },
     })
-    console.log(movie)
-    
+    const PosterMovie = "https://image.tmdb.org/t/p/w500" + movie.poster_path; 
+    var getPoster=document.getElementById("posterMovie");
+    getPoster.style.backgroundImage = `url(${PosterMovie})`; 
     titleMovie.innerHTML= movie.title;
     description.innerHTML= movie.overview;
     vote.innerHTML= "⭐ " + movie.vote_average; 
   
     CATEGORIES(movie.genres, listCategories)
 }
-
 
 
 
