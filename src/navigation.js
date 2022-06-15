@@ -80,6 +80,7 @@ function searchPage(){
     getMovieSearch(query);
     titleTrends1.innerHTML = "Resultados de: " + query;
     console.log("Estamos en search")
+
 }
 
 function moviePageDescription(){
@@ -89,6 +90,10 @@ function moviePageDescription(){
     homeSection.classList.add("inactive");
     categorySection.classList.add("inactive")
     console.log("Estamos en movie")
+
+    // [#movie, "4527"]
+    const [_ , movieId] =  location.hash.split('=');
+    getMovieById(movieId)
 }
 
 function trendsPage(){

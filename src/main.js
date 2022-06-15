@@ -18,6 +18,21 @@ const api = axios.create({
     },
 }); 
 
+function principalMovie(MOVIES, container){
+    container.innerHTML = " ";    // C/vez que se accede a otra pagina al regresar al home se duplican las categorias, por lo que con esta linea primero eliminamos y luego se hace la peticion a la API
+    MOVIES.forEach(movie => {
+        const movieImg = document.createElement("img"); 
+        movieImg.classList.add("imagen");
+        movieImg.setAttribute("alt", movie.title);
+        movieImg.setAttribute("src", "https://image.tmdb.org/t/p/w300" + movie.poster_path);
+        container.appendChild(movieImg);  
+        
+        container.addEventListener("click", ()=>{ 
+            location.hash = "#movie=" + movie.id
+        })
+    })
+}
+
 
 async function getTrendingPreview(){
     const { data } = await api("trending/movie/day")
@@ -31,7 +46,11 @@ async function getTrendingPreview(){
 
         const movieContainer = document.createElement("div"); //Esto nos permite crear una nueva etiqueta div
         movieContainer.classList.add("figure-container--movie-list"); //le agregamos la clase de esta misma etiqueta, misma clase que esta en el html
-        
+
+        movieContainer.addEventListener("click", ()=>{ //Fn para que al darle click en la pelicula nos lleva a la pag movie description
+            location.hash = "#movie=" + movie.id
+        })
+
         const movieImg = document.createElement("img"); 
         movieImg.classList.add("imgMovie");
         movieImg.setAttribute("alt", movie.title); //Creamos los atributos de la etq img, donde pasan dos valores, el tipo de atributo y el valor de dicho atributo 
@@ -60,36 +79,13 @@ async function getTrendingPreview(){
 }
 // getTrendingPreview();
 
-async function getTrends(){
-    const { data } = await api("trending/movie/day", {
-        params:{
-            "api_key": apiKey,
-        },
-    })
-
-    const movies = data.results;
-    const movieCategory = document.querySelector(".category-section .previewCategories_container");
-    movieCategory.innerHTML = " "; 
-    movies.forEach(movie => {
-        //DOM (Buscar Notas)
-        const movieImg = document.createElement("img"); 
-        movieImg.classList.add("imagen");
-        movieImg.setAttribute("alt", movie.title);
-        movieImg.setAttribute("src", "https://image.tmdb.org/t/p/w300" + movie.poster_path);
-        //APENDCHILD (buscar en notas)
-        movieCategory.appendChild(movieImg);     
-    })
-    
-}
-
-
 async function getCategoriesPreview(){
     const res = await fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=" + apiKey)
     const data = await res.json();
 
     const categories = data.genres;
     const categoriesPreview = document.querySelector(".categories-section .categories-section--list")
-    categoriesPreview.innerHTML = " "   // C/vez que se accede a otra pagina al regresar al home se duplican las categorias, por lo que con esta linea primero eliminamos y luego se hace la peticion a la API
+    categoriesPreview.innerHTML = " " 
 
     categories.forEach(category => {
         const categoryButton = document.createElement("button"); 
@@ -107,6 +103,18 @@ async function getCategoriesPreview(){
 }
 // getCategoriesPreview() Comentamos la ejecucion de las FN ya que las estamos mandando a llamar al momento de que estemos en la pagina adecuada(revisar) 
 
+async function getTrends(){
+    const { data } = await api("trending/movie/day", {
+        params:{
+            "api_key": apiKey,
+        },
+    })
+
+    const movies = data.results;
+    const movieCategory = document.querySelector(".category-section .previewCategories_container");
+    principalMovie(movies, movieCategory)
+    
+}
 
 async function getMovieCategory(id){
     const { data } = await api("discover/movie", {
@@ -125,7 +133,12 @@ async function getMovieCategory(id){
         movieImg.setAttribute("alt", movie.title);
         movieImg.setAttribute("src", "https://image.tmdb.org/t/p/w300" + movie.poster_path);
         //APENDCHILD (buscar en notas)
-        movieCategory.appendChild(movieImg);     
+        movieCategory.appendChild(movieImg);  
+        
+        movieCategory.addEventListener("click", ()=>{ 
+            location.hash = "#movie=" + movie.id
+        })
+
     })
     
 }
@@ -139,15 +152,25 @@ async function getMovieSearch(query){
 
     const movies = data.results;
     const searchSection = document.querySelector(".search-section .previewCategories_container")
-    searchSection.innerHTML = " "; 
-    movies.forEach(movie => {
-        //DOM (Buscar Notas)
-        const movieImg = document.createElement("img"); 
-        movieImg.classList.add("imagen");
-        movieImg.setAttribute("alt", movie.title);
-        movieImg.setAttribute("src", "https://image.tmdb.org/t/p/w300" + movie.poster_path);
-        //APENDCHILD (buscar en notas)
-        searchSection.appendChild(movieImg);     
-    })
+    principalMovie(movies, searchSection)
     
 }
+
+async function getMovieById(id){
+    const { data: movie } = await api("movie/" + id, {
+        params:{
+            "api_key": apiKey,
+        },
+    })
+
+    titleMovie.innerHTML= movie.title;
+    description.innerHTML= movie.overview;
+    vote.innerHTML= "⭐ " + movie.vote_average;
+}
+
+
+
+
+
+
+

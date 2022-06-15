@@ -22,7 +22,9 @@ const listCategories = document.querySelector(".categories-section--listMovie");
 const titleSimilars = document.querySelector(".similares");
 const similarSection = document.querySelector(".similarSection");
 const similarMovieList = document.querySelector(".figure-container--movie-list");
-
+const titleMovie = document.querySelector(".movieSection-MoviesContainer .titleMovie")
+const vote = document.querySelector(".movieSection-MoviesContainer .vote");
+const description = document.querySelector(".movieSection-MoviesContainer .description")
 
 /*   HOME SECTION  */
 

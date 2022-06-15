@@ -16,7 +16,9 @@ html{
     
 }
 
-
+img{
+    cursor: pointer;
+}
 
 /* HEADER*/
 
