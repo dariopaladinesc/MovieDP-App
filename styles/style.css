@@ -258,7 +258,6 @@ img{
 .categories-section__movieDescription{
     margin: 15px;
 }
-
 .similarSection{
     display: flex;
     margin: 15px 10px;
@@ -267,9 +266,14 @@ img{
 .similares{
     margin: 0px 15px -10px 15px;
 }
+.listsSimilars{
+    display: flex;
+    overflow-x: scroll;
+}
 .figure-container--movie-list img{
     margin: 5px;
     border-radius: 10px;
+    width: 113px;
 }
 
 

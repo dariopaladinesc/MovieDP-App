@@ -22,6 +22,7 @@ const api = axios.create({
 
 //FN que hace el llamado a las peliculas. Parametro: "MOVIES"-> var donde esta almacenada el data.results. "container"-> es el contenedor donde se carga c/pelicula
 function principalMovie(MOVIES, container){  
+    
     container.innerHTML = " ";    // C/vez que se accede a otra pagina al regresar al home se duplican las categorias, por lo que con esta linea primero eliminamos y luego se hace la peticion a la API
     MOVIES.forEach(movie => {
         const movieImg = document.createElement("img"); 
@@ -165,16 +166,21 @@ async function getMovieById(id){
         },
     })
     const PosterMovie = "https://image.tmdb.org/t/p/w500" + movie.poster_path; 
-    var getPoster=document.getElementById("posterMovie");
-    getPoster.style.backgroundImage = `url(${PosterMovie})`; 
+    movieSection.style.backgroundImage = `url(${PosterMovie})`; 
     titleMovie.innerHTML= movie.title;
     description.innerHTML= movie.overview;
     vote.innerHTML= "⭐ " + movie.vote_average; 
   
-    CATEGORIES(movie.genres, listCategories)
+    CATEGORIES(movie.genres, listCategories);
+    getSimilarsMovies(id)
 }
 
-
+async function getSimilarsMovies(id){
+    const { data: movie } = await api(`movie/${id}/similar`)
+    const relatedMovies = movie.results;
+    
+    principalMovie(relatedMovies, similarMovieList)
+}
 
 
 
