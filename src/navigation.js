@@ -20,6 +20,8 @@ searchButton.addEventListener("click", () => {
 window.addEventListener("hashchange", navigator, false)  
 window.addEventListener("DOMContentLoaded", navigator, false)
 
+
+
 function navigator(){
     console.log(location);
     if (location.hash.startsWith("#trends=")){  //estamos prguntando si el "hash" que esta dentro de "location" empieza con "trends" en la url entonces realize X accion
@@ -36,7 +38,6 @@ function navigator(){
 
 }
 
-
 function homePage(){
     principalheader.classList.add("principal-header")
     principalnav.classList.remove("fixed")
@@ -45,7 +46,7 @@ function homePage(){
     categorySection.classList.add("inactive");
     searchSection.classList.add("inactive")
     console.log("Volvemos al home")
-    
+
     getCategoriesPreview();
     getTrendingPreview(); //mandamos a llamar las fn´s aqui ya que estas se ejecutarán solo al momento que nos encontremos en la pagina home eso se visualiza con el hash (estas fn se encuentran en main.js)
 }
