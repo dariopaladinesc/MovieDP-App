@@ -25,6 +25,7 @@ const titleMovie = document.querySelector(".movieSection-MoviesContainer .titleM
 const vote = document.querySelector(".movieSection-MoviesContainer .vote");
 const description = document.querySelector(".movieSection-MoviesContainer .description")
 
+
 /*   HOME SECTION  */
 
 const homeSection = document.querySelector(".homeSection");

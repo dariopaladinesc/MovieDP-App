@@ -23,15 +23,19 @@ img{
 
 /*Loading Skeletons*/
 
-.trend-container-figures .figure-container--movie-list img {
-    background-color: rgb(39, 39, 39);
 
-
+.loading{
+    height: 170px;
+    border-radius: 5px;
+    margin: 5px;
+    border-radius: 10px;
+    width: 113px;
+    background-color: rgb(60, 60, 60);
 }
-.boton{
-    background-color: rgb(39, 39, 39);
-
-   
+.loadingButtons{
+    width: 36px;
+    height: 30px;
+    padding: 3px 10px 5px 10px
 }
 .trend-container-figures::-webkit-scrollbar{
     display: none;
@@ -175,7 +179,6 @@ img{
 .trend-container-figures{
     display: flex;
     overflow-x: scroll;
-
 }
 .trend-container-figures .figure-container--movie-list{
     display: grid;
@@ -186,7 +189,9 @@ img{
 }
 .trend-container-figures .figure-container--movie-list img{
     height: 170px;
-    border-radius: 5px;
+    border-radius: 10px;
+    margin: 5px;
+    width: 113px;
 }
 .trend-container-figures .figure-container--movie-list .description-movie p{
     color: white;
@@ -231,6 +236,7 @@ img{
 
 
 /*MOVIE DESCRIPTION SECTION*/
+
 .movieSection{
     width: 100%;
     height: 470px;
@@ -280,7 +286,7 @@ img{
     text-align: justify;
 }
 .categories-section__movieDescription{
-    margin: 15px;
+    margin: 15px 5%;
 }
 .similarSection{
     display: flex;
@@ -294,11 +300,13 @@ img{
     display: flex;
     overflow-x: scroll;
 }
-.figure-container--movie-list img{
+.listsSimilars img{
+    height: 170px;
     margin: 5px;
     border-radius: 10px;
-    width: 113px;
+    background-color: rgb(60, 60, 60);
 }
+
 
 
 /*   CATEGORY SECTION   */

@@ -106,7 +106,6 @@ async function getTrendingPreview(){
     })
     
 }
-// getTrendingPreview();
 
 
 async function getCategoriesPreview(){
