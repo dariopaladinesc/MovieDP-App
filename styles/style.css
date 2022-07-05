@@ -12,13 +12,37 @@
 html{
     font-family: "Baloo 2", cursive;
     line-height: 20px;
-    background:linear-gradient(to top,  #9a91c4, #141414) ;
+    background:rgb(0, 0, 0) ;
     
 }
 
 img{
     cursor: pointer;
 }
+
+
+/*Loading Skeletons*/
+
+.trend-container-figures .figure-container--movie-list img {
+    background-color: rgb(39, 39, 39);
+
+
+}
+.boton{
+    background-color: rgb(39, 39, 39);
+
+   
+}
+.trend-container-figures::-webkit-scrollbar{
+    display: none;
+}
+.similarSection::-webkit-scrollbar{
+    display: none;
+}
+.figure-container--movie-list::-webkit-scrollbar{
+    display: none;
+}
+
 
 /* HEADER*/
 
@@ -172,7 +196,7 @@ img{
     padding:0px 5px 0px 7px;
 }
 .trend-container-figures .figure-container--movie-list .description-movie .rate{
-    color: black;
+    color: #a7a1c8;
     font-weight: 500;
 }
 .categories-section .categories-section--list{
