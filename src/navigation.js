@@ -1,29 +1,28 @@
 //ejecutmos la funcion navigator cuando exista un cambio en el hash con el metodo haschange. Es decir cuando hay cambio de link entra la funcion navigator la cual realiza la comparacion para de acuerdo a eso redireccionar la pagina
 //Para que el programa funcione tiene que empezar el html en el home section es decir con las clases de movie description en inactive y partiendo de ahi JS ira agregando y quitando dinamicamente las clases en funcion del hash de location
 
+window.addEventListener("hashchange", navigator, false)  
+window.addEventListener("DOMContentLoaded", navigator, false)
+    
+
 verMas.addEventListener("click", () => {
     location.hash = "trends="
 })
 flecha.addEventListener("click", () => {
-    location.hash = "home="
+     location.hash = "home="
 })
 flecha1.addEventListener("click", () => {
-    location.hash = "home="
+      location.hash = "home=" //window.history.back() 
 })
 flecha2.addEventListener("click", () => {
-    location.hash = "home="  //window.history.back()  <- esta sirve para guardar el historia de busqueda en el nav
+     location.hash = "home=" //window.history.back() //    <- esta sirve para guardar el historia de busqueda en el nav
 })
 searchButton.addEventListener("click", () => {
     location.hash = `#search=${searchInput.value}`
 })
 
-window.addEventListener("hashchange", navigator, false)  
-window.addEventListener("DOMContentLoaded", navigator, false)
-
-
 
 function navigator(){
-    console.log(location);
     if (location.hash.startsWith("#trends=")){  //estamos prguntando si el "hash" que esta dentro de "location" empieza con "trends" en la url entonces realize X accion
         trendsPage()
     }else if ((location.hash.startsWith("#search="))){
@@ -92,7 +91,7 @@ function moviePageDescription(){
     homeSection.classList.add("inactive");
     categorySection.classList.add("inactive")
     console.log("Estamos en movie")
-
+    console.log(location.hash)
     // [#movie, "4527"]
     const [_ , movieId] =  location.hash.split('=');
     getMovieById(movieId)

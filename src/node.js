@@ -11,6 +11,7 @@ const navSearch = document.querySelector(".nav-search");
 const searchInput = document.querySelector(".search-input")
 
 
+
 /*   MOVIE DESCRIPTION  */
 
 const generalDescription = document.querySelector(".GeneralDescription-Movie__Container")
@@ -24,6 +25,7 @@ const similarMovieList = document.querySelector(".figure-container--movie-list")
 const titleMovie = document.querySelector(".movieSection-MoviesContainer .titleMovie")
 const vote = document.querySelector(".movieSection-MoviesContainer .vote");
 const description = document.querySelector(".movieSection-MoviesContainer .description")
+
 
 
 /*   HOME SECTION  */
@@ -40,6 +42,7 @@ const viewContainerFigures = document.querySelector(".trend-container-figures");
 const categoriesSectionView = document.querySelector(".categories-section");
 
 
+
 /*   CATEGORY SECTION   */
 
 const categorySection = document.querySelector(".category-section");
@@ -53,6 +56,8 @@ const titleTrends = document.querySelector(".category-section .titleTrends")
 
 const searchSection = document.querySelector(".search-section")
 const titleTrends1 = document.querySelector(".search-section .titleTrends")
+
+
 
 /*  BUTTONS   */
 

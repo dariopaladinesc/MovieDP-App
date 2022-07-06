@@ -28,11 +28,9 @@ function principalMovie(MOVIES, container){
         if ((movie.poster_path)== null){
             const movieImg = document.createElement("img"); 
             movieImg.classList.add("imagen");
-            movieImg.setAttribute("alt", movie.title);
+            movieImg.setAttribute("alt", 'pelicula no encontrada');
             movieImg.setAttribute("src", "https://i.ibb.co/dKGRLmx/fposter-small-wall-texture-product-750x1000.jpg");
-            container.appendChild(movieImg);  
-            
-        
+            container.appendChild(movieImg);        
         }else{
             const movieImg = document.createElement("img"); 
             movieImg.classList.add("imagen");
@@ -40,13 +38,13 @@ function principalMovie(MOVIES, container){
             movieImg.setAttribute("data-img", "https://image.tmdb.org/t/p/w300" + movie.poster_path) //cambiamos el atributo"data-img" para poder usar el lazy loading
             container.appendChild(movieImg);  
             
-            container.addEventListener("click", ()=>{ 
+        
+            movieImg.addEventListener("click", ()=>{ 
                 location.hash = "#movie=" + movie.id
             })
 
-            observador.observe(movieImg) //ejecutamos la fn, para que observe el contenedor (img) y haga lazy
-        }
-       
+            observador.observe(movieImg) //ejecutamos la fn, para que observe el contenedor (movieImg = img) y haga lazy
+        }   
     })
 }
 
@@ -56,17 +54,16 @@ function CATEGORIES(CATEGORY, ContainerCat){
     CATEGORY.forEach(category => {
         const categoryButton = document.createElement("button"); 
         categoryButton.classList.add("boton");
-        categoryButton.addEventListener("click", () => {
-            location.hash = "#categories=" + category.id + "-" + category.name;
-        })
         const contentBotton = document.createTextNode(category.name)
+        categoryButton.addEventListener("click", () => {
+            location.hash = `#categories=${category.id}-${category.name}`;
+        })
 
         //APENDCHILD (buscar en notas)
        categoryButton.appendChild(contentBotton);
        ContainerCat.appendChild(categoryButton)
     })   
 }
-
 
  // ++   Intersection Observer ++ ///
 
@@ -83,8 +80,6 @@ const observador = new IntersectionObserver((entries) =>{
 
 
 //-----------------------------------------------------------//
-
-
 
 
 
@@ -143,8 +138,7 @@ async function getCategoriesPreview(){
     CATEGORIES(categories, categoriesPreview)
     
 }
-// getCategoriesPreview() Comentamos la ejecucion de las FN ya que las estamos mandando a llamar al momento de que estemos en la pagina adecuada(revisar) 
-
+ 
 async function getTrends(){
     const { data } = await api("trending/movie/day", {
         params:{
@@ -152,11 +146,25 @@ async function getTrends(){
         },
     })
 
-    const movies = data.results;
+    const moviess = data.results;
+    console.log(moviess)
     const movieCategory = document.querySelector(".category-section .previewCategories_container");
-    principalMovie(movies, movieCategory)
+    principalMovie(moviess, movieCategory)
     
+    // const btnLoadmore = document.createElement('button')
+    // btnLoadmore.innerText= 'Cargar más';
+    // btnLoadmore.addEventListener('click', getPagesTrend)
+    // movieCategory.appendChild(btnLoadmore)
 }
+
+// async function getPagesTrend(){
+//     const { data } = await api("trending/movie/day", {
+//         params:{
+//             // "api_key": apiKey,
+//             "page": 2,
+//         },
+//     })
+// }
 
 async function getMovieCategory(id){
     const { data } = await api("discover/movie", {
@@ -195,15 +203,14 @@ async function getMovieById(id){
     titleMovie.innerHTML= movie.title;
     description.innerHTML= movie.overview;
     vote.innerHTML= "⭐ " + movie.vote_average; 
-  
+    
     CATEGORIES(movie.genres, listCategories);
-    getSimilarsMovies(id)
+    getSimilarsMovies(id);
 }
 
 async function getSimilarsMovies(id){
     const { data: movie } = await api(`movie/${id}/similar`)
     const relatedMovies = movie.results;
-    
     principalMovie(relatedMovies, similarMovieList)
 }
 
