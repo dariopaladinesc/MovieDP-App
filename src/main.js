@@ -23,17 +23,30 @@ const api = axios.create({
 //FN que hace el llamado a las peliculas. Parametro: "MOVIES"-> var donde esta almacenada el data.results. "container"-> es el contenedor donde se carga c/pelicula
 function principalMovie(MOVIES, container){  
     
-    container.innerHTML = " ";    // C/vez que se accede a otra pagina al regresar al home se duplican las categorias, por lo que con esta linea primero eliminamos y luego se hace la peticion a la API
+    container.innerHTML = " ";   
     MOVIES.forEach(movie => {
-        const movieImg = document.createElement("img"); 
-        movieImg.classList.add("imagen");
-        movieImg.setAttribute("alt", movie.title);
-        movieImg.setAttribute("src", "https://image.tmdb.org/t/p/w300" + movie.poster_path);
-        container.appendChild(movieImg);  
+        if ((movie.poster_path)== null){
+            const movieImg = document.createElement("img"); 
+            movieImg.classList.add("imagen");
+            movieImg.setAttribute("alt", movie.title);
+            movieImg.setAttribute("src", "https://i.ibb.co/dKGRLmx/fposter-small-wall-texture-product-750x1000.jpg");
+            container.appendChild(movieImg);  
+            
         
-        container.addEventListener("click", ()=>{ 
-            location.hash = "#movie=" + movie.id
-        })
+        }else{
+            const movieImg = document.createElement("img"); 
+            movieImg.classList.add("imagen");
+            movieImg.setAttribute("alt", movie.title);
+            movieImg.setAttribute("data-img", "https://image.tmdb.org/t/p/w300" + movie.poster_path) //cambiamos el atributo"data-img" para poder usar el lazy loading
+            container.appendChild(movieImg);  
+            
+            container.addEventListener("click", ()=>{ 
+                location.hash = "#movie=" + movie.id
+            })
+
+            observador.observe(movieImg) //ejecutamos la fn, para que observe el contenedor (img) y haga lazy
+        }
+       
     })
 }
 
@@ -61,7 +74,7 @@ function CATEGORIES(CATEGORY, ContainerCat){
 const observador = new IntersectionObserver((entries) =>{
     entries.forEach((entry) => {
         if (entry.isIntersecting){
-            const url = entry.target.getAttribute('data-img');//en url estamos guardando la url de c/movie, ya que con getAtribute almacenamos el atributo que esta en la img
+            const url = entry.target.getAttribute('data-img');//en url estamos guardando la url de c/movie, ya que con getAtribute almacenamos el atributo que esta en la img, por ello tambien cambiamos el atributo "data-img" en las funciones originales
             entry.target.setAttribute('src',url)//colocamos el atributo src con el link guardado anteriormente
         }    
     })
