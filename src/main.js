@@ -37,7 +37,6 @@ function principalMovie(MOVIES, container){
     })
 }
 
-
 function CATEGORIES(CATEGORY, ContainerCat){
   
     ContainerCat.innerHTML = " " 
@@ -54,6 +53,19 @@ function CATEGORIES(CATEGORY, ContainerCat){
        ContainerCat.appendChild(categoryButton)
     })   
 }
+
+
+ // ++   Intersection Observer ++ ///
+
+//creamos la nueva instancia, la var entries lleva todos los parametros de la instancia intersectionObserver, y ya la variable entry es la que se reemplazará por el movieImg
+const observador = new IntersectionObserver((entries) =>{
+    entries.forEach((entry) => {
+        if (entry.isIntersecting){
+            const url = entry.target.getAttribute('data-img');//en url estamos guardando la url de c/movie, ya que con getAtribute almacenamos el atributo que esta en la img
+            entry.target.setAttribute('src',url)//colocamos el atributo src con el link guardado anteriormente
+        }    
+    })
+})
 
 
 
@@ -79,12 +91,13 @@ async function getTrendingPreview(){
         movieContainer.addEventListener("click", ()=>{ //Fn para que al darle click en la pelicula nos lleva a la pag movie description
             location.hash = "#movie=" + movie.id
         })
-
+         
         const movieImg = document.createElement("img"); 
         movieImg.classList.add("imgMovie");
-        movieImg.setAttribute("alt", movie.title); //Creamos los atributos de la etq img, donde pasan dos valores, el tipo de atributo y el valor de dicho atributo 
-        movieImg.setAttribute("src", "https://image.tmdb.org/t/p/w300" + movie.poster_path);
-        
+        movieImg.setAttribute("alt", movie.title); 
+        movieImg.setAttribute("data-img", "https://image.tmdb.org/t/p/w300" + movie.poster_path);
+        observador.observe(movieImg) //ejecutamos la fn observador y la estamos observando, colocandole con su respectivo contenedor
+
         const titleMovieContainer = document.createElement("div"); //etq contenedor del titulo de la movie y la calificacion
         titleMovieContainer.classList.add("description-movie");
         const titleMovie = document.createElement("p");
@@ -93,7 +106,7 @@ async function getTrendingPreview(){
 
         const rateMovie = document.createElement("p");
         rateMovie.classList.add("rate");
-        const textRate = document.createTextNode("Rate:  " + movie.vote_average +"pts")
+        const textRate = document.createTextNode(`Rate:${(movie.vote_average).toFixed(1)}`)
 
         //APENDCHILD (buscar en notas)
         movieContainer.appendChild(movieImg); //movieContainer es una etq div padre que contiene la etq im(movieImg)
@@ -180,7 +193,6 @@ async function getSimilarsMovies(id){
     
     principalMovie(relatedMovies, similarMovieList)
 }
-
 
 
 

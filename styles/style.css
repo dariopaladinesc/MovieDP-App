@@ -23,7 +23,6 @@ img{
 
 /*Loading Skeletons*/
 
-
 .loading{
     height: 170px;
     border-radius: 5px;
@@ -35,15 +34,10 @@ img{
 .loadingButtons{
     width: 36px;
     height: 30px;
-    padding: 3px 10px 5px 10px
+    padding: 3px 10px 5px 10px;
+    background-color: rgb(60, 60, 60);
 }
 .trend-container-figures::-webkit-scrollbar{
-    display: none;
-}
-.similarSection::-webkit-scrollbar{
-    display: none;
-}
-.figure-container--movie-list::-webkit-scrollbar{
     display: none;
 }
 
@@ -112,9 +106,10 @@ img{
 .principal-main-section{
     width: 100%;
     height: 250px;
-    background-image: url(/poster.png);
+    background: url(https://i.ibb.co/T1JwtqX/rapidos-y-furiosos-jpg-1894821134.webp);
     background-size:cover;
     background-repeat: no-repeat;
+    opacity: 0.9;
 }
 .principal-main-section .section-movie-description{
     display: flex;
@@ -295,6 +290,12 @@ img{
 }
 .similares{
     margin: 0px 15px -10px 15px;
+}
+.similarSection::-webkit-scrollbar{
+    display: none;
+}
+.figure-container--movie-list::-webkit-scrollbar{
+    display: none;
 }
 .listsSimilars{
     display: flex;
