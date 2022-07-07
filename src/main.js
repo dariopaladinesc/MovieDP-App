@@ -21,9 +21,11 @@ const api = axios.create({
 //  +++++ REPEAT FUNCTIONS  +++++++
 
 //FN que hace el llamado a las peliculas. Parametro: "MOVIES"-> var donde esta almacenada el data.results. "container"-> es el contenedor donde se carga c/pelicula
-function principalMovie(MOVIES, container){  
+function principalMovie(MOVIES, container, clean = true){  
+    if (clean){
+        container.innerHTML = " ";  
+    }
     
-    container.innerHTML = " ";   
     MOVIES.forEach(movie => {
         if ((movie.poster_path)== null){
             const movieImg = document.createElement("img"); 
@@ -37,9 +39,8 @@ function principalMovie(MOVIES, container){
             movieImg.setAttribute("alt", movie.title);
             movieImg.setAttribute("data-img", "https://image.tmdb.org/t/p/w300" + movie.poster_path) //cambiamos el atributo"data-img" para poder usar el lazy loading
             container.appendChild(movieImg);  
-            
         
-            movieImg.addEventListener("click", ()=>{ 
+            movieImg.addEventListener("click", ()=>{  //al momento de dar click en la img se ejecuta el cambio de hash, (tener en cuenta que es el mismo contenedor donde acabamos de crear la img)
                 location.hash = "#movie=" + movie.id
             })
 
@@ -147,24 +148,32 @@ async function getTrends(){
     })
 
     const moviess = data.results;
-    console.log(moviess)
-    const movieCategory = document.querySelector(".category-section .previewCategories_container");
-    principalMovie(moviess, movieCategory)
+    principalMovie(moviess, movieCategory, true)
     
-    // const btnLoadmore = document.createElement('button')
-    // btnLoadmore.innerText= 'Cargar más';
-    // btnLoadmore.addEventListener('click', getPagesTrend)
-    // movieCategory.appendChild(btnLoadmore)
+    const btnLoadmore = document.createElement('button')
+    btnLoadmore.innerText= 'Cargar más';
+    btnLoadmore.addEventListener('click', getPagesTrend)
+    movieCategory.appendChild(btnLoadmore)
 }
 
-// async function getPagesTrend(){
-//     const { data } = await api("trending/movie/day", {
-//         params:{
-//             // "api_key": apiKey,
-//             "page": 2,
-//         },
-//     })
-// }
+let page = 1
+async function getPagesTrend(){ //mostrar la segunda pg 
+    page += 1 // contador || page++
+    const { data } = await api("trending/movie/day", {
+        params:{
+            page: page,
+        },
+    })
+    const movies = data.results;
+    principalMovie(movies, movieCategory, false)
+
+    const btnLoadmore = document.createElement('button')
+    btnLoadmore.innerText= 'Cargar más';
+    btnLoadmore.addEventListener('click', getPagesTrend)
+    movieCategory.appendChild(btnLoadmore)
+
+
+}
 
 async function getMovieCategory(id){
     const { data } = await api("discover/movie", {

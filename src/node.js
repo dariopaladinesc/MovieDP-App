@@ -48,7 +48,8 @@ const categoriesSectionView = document.querySelector(".categories-section");
 const categorySection = document.querySelector(".category-section");
 const previewcategories = document.querySelector(".previewCategories_container");
 const titleCategory = document.querySelector(".title-category");
-const titleTrends = document.querySelector(".category-section .titleTrends")
+const titleTrends = document.querySelector(".category-section .titleTrends");
+const movieCategory = document.querySelector(".category-section .previewCategories_container");
 
 
 

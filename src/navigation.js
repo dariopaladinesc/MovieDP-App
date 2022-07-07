@@ -9,13 +9,13 @@ verMas.addEventListener("click", () => {
     location.hash = "trends="
 })
 flecha.addEventListener("click", () => {
-     location.hash = "home="
+     location.hash = window.history.back() //btn principal para regresar a pag anteriores
 })
 flecha1.addEventListener("click", () => {
-      location.hash = "home=" //window.history.back() 
+      location.hash = "#home="
 })
 flecha2.addEventListener("click", () => {
-     location.hash = "home=" //window.history.back() //    <- esta sirve para guardar el historia de busqueda en el nav
+     location.hash = "#home="
 })
 searchButton.addEventListener("click", () => {
     location.hash = `#search=${searchInput.value}`
@@ -91,7 +91,6 @@ function moviePageDescription(){
     homeSection.classList.add("inactive");
     categorySection.classList.add("inactive")
     console.log("Estamos en movie")
-    console.log(location.hash)
     // [#movie, "4527"]
     const [_ , movieId] =  location.hash.split('=');
     getMovieById(movieId)
