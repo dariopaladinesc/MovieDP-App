@@ -141,6 +141,8 @@ async function getCategoriesPreview(){
 }
  
 async function getTrends(){
+    
+    
     const { data } = await api("trending/movie/day", {
         params:{
             "api_key": apiKey,
@@ -150,28 +152,29 @@ async function getTrends(){
     const moviess = data.results;
     principalMovie(moviess, movieCategory, true)
     
-    const btnLoadmore = document.createElement('button')
+    btnLoadmore = document.createElement('button')
     btnLoadmore.innerText= 'Cargar más';
-    btnLoadmore.addEventListener('click', getPagesTrend)
     movieCategory.appendChild(btnLoadmore)
+    btnLoadmore.addEventListener('click', getPagesTrend)
 }
+let btnLoadmore ;
 
 let page = 1
 async function getPagesTrend(){ //mostrar la segunda pg 
+    movieCategory.removeChild(btnLoadmore);
     page += 1 // contador || page++
+
     const { data } = await api("trending/movie/day", {
         params:{
             page: page,
-        },
+        }, 
     })
     const movies = data.results;
     principalMovie(movies, movieCategory, false)
-
-    const btnLoadmore = document.createElement('button')
+ 
     btnLoadmore.innerText= 'Cargar más';
     btnLoadmore.addEventListener('click', getPagesTrend)
     movieCategory.appendChild(btnLoadmore)
-
 
 }
 
