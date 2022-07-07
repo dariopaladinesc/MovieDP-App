@@ -1,5 +1,5 @@
-//ejecutmos la funcion navigator cuando exista un cambio en el hash con el metodo haschange. Es decir cuando hay cambio de link entra la funcion navigator la cual realiza la comparacion para de acuerdo a eso redireccionar la pagina
-//Para que el programa funcione tiene que empezar el html en el home section es decir con las clases de movie description en inactive y partiendo de ahi JS ira agregando y quitando dinamicamente las clases en funcion del hash de location
+//  +++  REVISAR NOTAS   +++
+//1° Funciones principales
 
 window.addEventListener("hashchange", navigator, false)  
 window.addEventListener("DOMContentLoaded", navigator, false)
@@ -23,7 +23,7 @@ searchButton.addEventListener("click", () => {
 
 
 function navigator(){
-    if (location.hash.startsWith("#trends=")){  //estamos prguntando si el "hash" que esta dentro de "location" empieza con "trends" en la url entonces realize X accion
+    if (location.hash.startsWith("#trends=")){  //preguntamos si el "hash" que esta dentro de "location" empieza con "trends" en la url entonces realize X accion
         trendsPage()
     }else if ((location.hash.startsWith("#search="))){
         searchPage()
@@ -47,7 +47,7 @@ function homePage(){
     console.log("Volvemos al home")
 
     getCategoriesPreview();
-    getTrendingPreview(); //mandamos a llamar las fn´s aqui ya que estas se ejecutarán solo al momento que nos encontremos en la pagina home eso se visualiza con el hash (estas fn se encuentran en main.js)
+    getTrendingPreview(); //ejecucuion de FN dependiendo del hash, fn estan en main.js
 }
 
 function categoriesPage(){

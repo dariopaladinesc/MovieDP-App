@@ -1,8 +1,7 @@
-///NOTAS 
-////MANIPULACION DEL DOM.- Al manipular el dom tenemos que tener la misma estructura del html (clases, id, etiquetas) para que se enlazen con css y js
-////APPENDCHILD.- Los appendchild nos sirven para crear nodos donde el primer valor es el contenedor padre y el que va en parentesis el contenedor o etq hija (tener en cuenta que para que funcione, siempre se deben tener la misma estructura del HTML, irse guiando por el nombre de las clases)
-///AXIOS.- Axios me permite trabajar sin la necesidad de hacer un fetch, sin la necesidad de en la url colocar todo el link sino irlo colocando por partes, igualmente la api-key, ya que esta se coloca dentro de las propiedades de axios, y finalmente para este ejemplo no hay necesidad de parsear la respuesta que obtenemos de la API con el .json . Revisar la diferencia entre las dos funciones "trending y categories" la una con y la otra sin axios
-
+/// +++  REVISAR NOTAS    +++
+//2° MANIPULACION DEL DOM.
+//3° APPENDCHILD
+//4° AXIOS
 
 
 const apiKey =  "ebef3c4904b620dd2750ccb92c78cdc6"
@@ -20,8 +19,8 @@ const api = axios.create({
 
 //  +++++ REPEAT FUNCTIONS  +++++++
 
-//FN que hace el llamado a las peliculas. Parametro: "MOVIES"-> var donde esta almacenada el data.results. "container"-> es el contenedor donde se carga c/pelicula
-function principalMovie(MOVIES, container, clean = true){  
+//PrincipalMovie. 5° 
+function principalMovie(MOVIES, container, clean = true){  //clean sirve para comprobar dependiendo la pagina si limpiamos o no el contenido anterior, con la finalidad de seguir haciendo scroll
     if (clean){
         container.innerHTML = " ";  
     }
@@ -141,8 +140,6 @@ async function getCategoriesPreview(){
 }
  
 async function getTrends(){
-    
-    
     const { data } = await api("trending/movie/day", {
         params:{
             "api_key": apiKey,
@@ -152,17 +149,21 @@ async function getTrends(){
     const moviess = data.results;
     principalMovie(moviess, movieCategory, true)
     
-    btnLoadmore = document.createElement('button')
-    btnLoadmore.innerText= 'Cargar más';
-    movieCategory.appendChild(btnLoadmore)
-    btnLoadmore.addEventListener('click', getPagesTrend)
+    // btnLoadmore = document.createElement('button')
+    // btnLoadmore.innerText= 'Cargar más';
+    // movieCategory.appendChild(btnLoadmore)
+    // btnLoadmore.addEventListener('click', getPagesTrend)
 }
 let btnLoadmore ;
-
 let page = 1
-async function getPagesTrend(){ //mostrar la segunda pg 
-    movieCategory.removeChild(btnLoadmore);
-    page += 1 // contador || page++
+window.addEventListener("scroll", getPagesTrend) //Ejecutamos la fn getPagesTrend cuando se hace scroll
+
+async function getPagesTrend(){ //Fn para paginacion. 6° 
+    const {scrollTop, clientHeight, scrollHeight}= document.documentElement; //desestructuramos,es como decir c/var añadirle el document.doc
+    const scrollIsBottom = (scrollTop + clientHeight) >= scrollHeight - 15 // Comprobacion 7°
+
+    if(scrollIsBottom){
+        page += 1 // contador || page++
 
     const { data } = await api("trending/movie/day", {
         params:{
@@ -171,10 +172,13 @@ async function getPagesTrend(){ //mostrar la segunda pg
     })
     const movies = data.results;
     principalMovie(movies, movieCategory, false)
- 
-    btnLoadmore.innerText= 'Cargar más';
-    btnLoadmore.addEventListener('click', getPagesTrend)
-    movieCategory.appendChild(btnLoadmore)
+   
+    }
+    // movieCategory.removeChild(btnLoadmore);
+    
+    // btnLoadmore.innerText= 'Cargar más';
+    // btnLoadmore.addEventListener('click', getPagesTrend)
+    // movieCategory.appendChild(btnLoadmore)
 
 }
 
