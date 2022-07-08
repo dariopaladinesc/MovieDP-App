@@ -1,9 +1,11 @@
 //  +++  REVISAR NOTAS   +++
 //1° Funciones principales
+let page = 1
+let infinite;
 
 window.addEventListener("hashchange", navigator, false)  
 window.addEventListener("DOMContentLoaded", navigator, false)
-    
+window.addEventListener("scroll", infinite, false) // Infinite scroll dinámico 8°
 
 verMas.addEventListener("click", () => {
     location.hash = "trends="
@@ -23,6 +25,10 @@ searchButton.addEventListener("click", () => {
 
 
 function navigator(){
+    if (infinite){
+        window.removeEventListener("scroll", infinite, false)
+        infinite = undefined
+    }
     if (location.hash.startsWith("#trends=")){  //preguntamos si el "hash" que esta dentro de "location" empieza con "trends" en la url entonces realize X accion
         trendsPage()
     }else if ((location.hash.startsWith("#search="))){
@@ -33,6 +39,9 @@ function navigator(){
         categoriesPage();
     }else{
         homePage();
+    }
+    if (infinite){
+        window.addEventListener("scroll", infinite, false)
     }
 
 }
@@ -76,12 +85,13 @@ function searchPage(){
     categorySection.classList.add("inactive");
     titleCategory.classList.add("inactive");
     
-    //   [#search, "platzi"]
+    //[#search, "platzi"]
     const [_ , query] =  location.hash.split('=');
     getMovieSearch(query);
     titleTrends1.innerHTML = "Resultados de: " + query;
     console.log("Estamos en search")
 
+    infinite = getPagesSearch(query)
 }
 
 function moviePageDescription(){
@@ -108,4 +118,5 @@ function trendsPage(){
     searchSection.classList.add("inactive")
     console.log("Estamos en trends");
     getTrends();
+    infinite = getPagesTrend // 8°
 }
