@@ -37,12 +37,18 @@ function principalMovie(MOVIES, container, clean = true){  //clean sirve para co
             movieImg.classList.add("imagen");
             movieImg.setAttribute("alt", movie.title);
             movieImg.setAttribute("data-img", "https://image.tmdb.org/t/p/w300" + movie.poster_path) //cambiamos el atributo"data-img" para poder usar el lazy loading
-            container.appendChild(movieImg);  
+            
+            const movieBtn = document.createElement('button');
+            movieBtn.classList.add("btnMovie")
+
+            container.append(movieImg, movieBtn);  
         
             movieImg.addEventListener("click", ()=>{  //al momento de dar click en la img se ejecuta el cambio de hash, (tener en cuenta que es el mismo contenedor donde acabamos de crear la img)
                 location.hash = "#movie=" + movie.id
             })
-
+            movieBtn.addEventListener('click', ()=>{
+                movieBtn.classList.toggle('btnMovie--liked')
+            })
             observador.observe(movieImg) //ejecutamos la fn, para que observe el contenedor (movieImg = img) y haga lazy
         }   
     })
@@ -95,15 +101,15 @@ async function getTrendingPreview(){
 
         const movieContainer = document.createElement("div"); //Esto nos permite crear una nueva etiqueta div
         movieContainer.classList.add("figure-container--movie-list"); //le agregamos la clase de esta misma etiqueta, misma clase que esta en el html
-
-        movieContainer.addEventListener("click", ()=>{ //Fn para que al darle click en la pelicula nos lleva a la pag movie description
-            location.hash = "#movie=" + movie.id
-        })
          
         const movieImg = document.createElement("img"); 
         movieImg.classList.add("imgMovie");
         movieImg.setAttribute("alt", movie.title); 
         movieImg.setAttribute("data-img", "https://image.tmdb.org/t/p/w300" + movie.poster_path);
+        
+        movieImg.addEventListener("click", ()=>{ //Fn para que al darle click en la pelicula nos lleva a la pag movie description
+            location.hash = "#movie=" + movie.id
+        })
         observador.observe(movieImg) //ejecutamos la fn observador y la estamos observando, colocandole con su respectivo contenedor
 
         const titleMovieContainer = document.createElement("div"); //etq contenedor del titulo de la movie y la calificacion
@@ -116,6 +122,12 @@ async function getTrendingPreview(){
         rateMovie.classList.add("rate");
         const textRate = document.createTextNode(`Rate:${(movie.vote_average).toFixed(1)}`)
 
+        const movieBtn = document.createElement('button');
+        movieBtn.classList.add("btnMovie")
+        movieBtn.addEventListener('click', ()=>{
+            movieBtn.classList.toggle('btnMovie--liked')
+        })
+
         //APENDCHILD (buscar en notas)
         movieContainer.appendChild(movieImg); //movieContainer es una etq div padre que contiene la etq im(movieImg)
         trendingPreview.appendChild(movieContainer); //TrendigPreview es la etiqueta contenedor padre de todos los elementos
@@ -124,6 +136,7 @@ async function getTrendingPreview(){
         rateMovie.appendChild(textRate);
         titleMovieContainer.appendChild(rateMovie);//Mismo procedimiento que para titleMovie
         movieContainer.appendChild(titleMovieContainer); //finalmente agregamos toda la estructura del titulo de la pelicula y puntuacion al contenedor padre div
+        movieContainer.appendChild(movieBtn); 
     })
     
 }
