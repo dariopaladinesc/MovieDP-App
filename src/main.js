@@ -181,7 +181,7 @@ async function getMovieCategory(id){
     })
 
     const movies = data.results;
-    principalMovie(movies, movieCategory, true)
+    principalMovie(movies, movieCategory)
     
 }
 function getPagesCategory(id){
@@ -211,7 +211,7 @@ async function getMovieSearch(query){
     })
 
     const movies = data.results;
-    principalMovie(movies, searchSection, true)
+    principalMovie(movies, searchSection1, true)
     
 }
 function getPagesSearch(query){
@@ -229,7 +229,7 @@ function getPagesSearch(query){
             }, 
         })
         const movies = data.results;
-        principalMovie(movies, searchSection, false)
+        principalMovie(movies, searchSection1, false)
        
         }
     }

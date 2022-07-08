@@ -56,6 +56,7 @@ const movieCategory = document.querySelector(".category-section .previewCategori
 /*     SEARCH SECTION  */
 
 const searchSection = document.querySelector(".search-section")
+const searchSection1 = document.querySelector(".search-section .previewCategories_container")
 const titleTrends1 = document.querySelector(".search-section .titleTrends")
 
 
