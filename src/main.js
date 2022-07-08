@@ -154,7 +154,6 @@ async function getTrends(){
     // movieCategory.appendChild(btnLoadmore)
     // btnLoadmore.addEventListener('click', getPagesTrend)
 }
-
 async function getPagesTrend(){ //Fn para paginacion. 6° 
     const {scrollTop, clientHeight, scrollHeight}= document.documentElement; //desestructuramos,es como decir c/var añadirle el document.doc
     const scrollIsBottom = (scrollTop + clientHeight) >= scrollHeight - 15 // Comprobacion 7°
@@ -182,11 +181,28 @@ async function getMovieCategory(id){
     })
 
     const movies = data.results;
-    const movieCategory = document.querySelector(".category-section .previewCategories_container");
-    principalMovie(movies, movieCategory)
+    principalMovie(movies, movieCategory, true)
     
 }
-
+function getPagesCategory(id){
+    return async () =>{
+        const {scrollTop, clientHeight, scrollHeight}= document.documentElement; 
+        const scrollIsBottom = (scrollTop + clientHeight) >= scrollHeight - 15 // 7°
+    
+        if(scrollIsBottom){
+            page += 1 // contador || page++
+    
+        const { data } = await api("discover/movie", {
+            params:{
+                with_genres: id,
+                page: page,
+            }, 
+        })
+        const movies = data.results;
+        principalMovie(movies, movieCategory, false)   
+        }
+    }
+}
 async function getMovieSearch(query){
     const { data } = await api("search/movie", {
         params: {
@@ -195,7 +211,6 @@ async function getMovieSearch(query){
     })
 
     const movies = data.results;
-    const searchSection = document.querySelector(".search-section .previewCategories_container")
     principalMovie(movies, searchSection, true)
     
 }
@@ -214,7 +229,6 @@ function getPagesSearch(query){
             }, 
         })
         const movies = data.results;
-        const searchSection = document.querySelector(".search-section .previewCategories_container")
         principalMovie(movies, searchSection, false)
        
         }

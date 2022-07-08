@@ -75,6 +75,7 @@ function categoriesPage(){
     titleTrends.innerHTML = (titleModified);
     getMovieCategory(categoryId);
     window.scrollTo(0, 0);
+    infinite = getPagesCategory(categoryId)
 }
 
 function searchPage(){
