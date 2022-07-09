@@ -17,6 +17,30 @@ const api = axios.create({
     },
 }); 
 
+function likedMovieList(){
+    const item = JSON.parse(localStorage.getItem('liked_movies'));
+    let movies; 
+
+    if(item){
+        movies = item
+    }else{
+        movies = {}
+    }
+
+    return movies;
+}
+function likeMovie(movie){
+    const likedMovies = likedMovieList()
+    if (likedMovies[movie.id]){
+        likedMovies[movie.id] = undefined
+        // console.log("la peli ya está en LS")
+    }else{
+        likedMovies[movie.id] = movie
+        // console.log("la pelicula no estaba en ls, deberiamos agregarla")
+    }
+    localStorage.setItem("liked_movies", JSON.stringify(likedMovies))
+}
+
 //  +++++ REPEAT FUNCTIONS  +++++++
 
 //PrincipalMovie. 5° 
@@ -126,6 +150,7 @@ async function getTrendingPreview(){
         movieBtn.classList.add("btnMovie")
         movieBtn.addEventListener('click', ()=>{
             movieBtn.classList.toggle('btnMovie--liked')
+            likeMovie(movie);
         })
 
         //APENDCHILD (buscar en notas)
