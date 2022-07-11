@@ -71,11 +71,13 @@ function principalMovie(MOVIES, container, clean = true){  //clean sirve para co
             newContainer.append(movieImg, movieBtn)
             container.appendChild(newContainer);  
         
+            likedMovieList()[movie.id] && movieBtn.classList.add('btnMovie--liked')
             movieImg.addEventListener("click", ()=>{  //al momento de dar click en la img se ejecuta el cambio de hash, (tener en cuenta que es el mismo contenedor donde acabamos de crear la img)
                 location.hash = "#movie=" + movie.id
             })
-            movieBtn.addEventListener('click', ()=>{
+            movieBtn.addEventListener('click', ()=>{ 
                 movieBtn.classList.toggle('btnMovie--liked')
+                likeMovie(movie);
             })
             observador.observe(movieImg) //ejecutamos la fn, para que observe el contenedor (movieImg = img) y haga lazy
         }   
@@ -152,6 +154,7 @@ async function getTrendingPreview(){
 
         const movieBtn = document.createElement('button');
         movieBtn.classList.add("btnMovie")
+        likedMovieList()[movie.id] && movieBtn.classList.add('btnMovie--liked')
         movieBtn.addEventListener('click', ()=>{
             movieBtn.classList.toggle('btnMovie--liked')
             likeMovie(movie);

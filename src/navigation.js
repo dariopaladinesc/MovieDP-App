@@ -57,7 +57,7 @@ function homePage(){
 
     getCategoriesPreview();
     getTrendingPreview(); //ejecucuion de FN dependiendo del hash, fn estan en main.js
-    getLikedMovies()
+    getLikedMovies() //fn que ejecuta y agrega las pelis a favs
 }
 
 function categoriesPage(){
@@ -76,7 +76,8 @@ function categoriesPage(){
     titleTrends.innerHTML = (titleModified);
     getMovieCategory(categoryId);
     window.scrollTo(0, 0);
-    infinite = getPagesCategory(categoryId)
+    infinite = getPagesCategory(categoryId) //fn de infiniteScroll 8°
+    // getLikedMovies()
 }
 
 function searchPage(){
@@ -94,6 +95,7 @@ function searchPage(){
     console.log("Estamos en search")
 
     infinite = getPagesSearch(query)
+    // getLikedMovies()
 }
 
 function moviePageDescription(){
@@ -106,7 +108,7 @@ function moviePageDescription(){
     // [#movie, "4527"]
     const [_ , movieId] =  location.hash.split('=');
     getMovieById(movieId)
-   
+    // getLikedMovies()
 }
 
 function trendsPage(){
@@ -121,4 +123,5 @@ function trendsPage(){
     console.log("Estamos en trends");
     getTrends();
     infinite = getPagesTrend // 8°
+    // getLikedMovies()
 }

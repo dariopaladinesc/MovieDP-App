@@ -188,6 +188,8 @@ img{
     height: 25px;
     border-radius: 50%;
     background-color: rgb(185, 183, 222);
+    border: none;
+    box-shadow: 2px 2px rgb(30, 30, 30);
 }
 .btnMovie::before{
     content: "🤍";
