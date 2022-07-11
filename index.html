@@ -24,7 +24,7 @@
                 <p>TV Shows</p>
             </div>
             <div class="nav-search">
-                <input class="search-input" type="text">
+                <input class="search-input" id="busqueda" type="text">
                 <button type="button" class="search-button">
                     <i class="fa-solid fa-magnifying-glass"></i> 
                 </button>      
@@ -72,7 +72,7 @@
             <section class="principal-main-section">
                 <div class="section-movie-description">
                     <h2>Fast & Furious 4</h2>
-                    <p>Dominic Toreto y Brian O'conner en una nueva saga de rapidos y furiosos se enfrentan a un nuevo enemigo</p>
+                    <p>Dominic Toreto and Brian O'conner in a new saga of fast and furious face a new enemy</p>
                     <div class="main-section--buttons-container">
                         <button class="play-button">▶</button>
                         <button class="favorites-button">Add</button>
@@ -82,8 +82,8 @@
             <section class="trend-section">
                 <article id="trend-section-container">
                     <div class="title-section">
-                        <h3>Tendencias</h3>
-                        <button id="verMas"> Ver más</button>
+                        <h3>Trends</h3>
+                        <button id="verMas"> View More</button>
                     </div>
                     <div class="trend-container-figures">
                         <div class="loading"></div>
@@ -100,7 +100,7 @@
             </section>
             <section class="view-section">
                 <div id="trend-section-container">
-                    <h3>Favoritos</h3>
+                    <h3>Favorites</h3>
                     <div class="trend-container-figures">
                         <div class="figure-container--movie-list">
                             <img class="imgMovie" src="" alt="">     
@@ -152,7 +152,15 @@
             </figure>
         </section>
     </main>
-    <footer>
+    <footer class="footer">
+        <section>
+            <p>Product design by: Dario Paladines</p>
+        </section>
+        <select name="lenguaje" id="languague-container">
+            <option class="es">Español</option>      
+            <option class="en">English</option>      
+            <option class="es">Germany</option>      
+        </select>
     </footer>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./src/main.js"></script>

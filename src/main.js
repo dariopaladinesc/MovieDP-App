@@ -14,13 +14,13 @@ const api = axios.create({
     },
     params:{
         "api_key": apiKey,
+        'language': 'es'
     },
 }); 
 
 function likedMovieList(){
     const item = JSON.parse(localStorage.getItem('liked_movies'));
     let movies; 
-
     if(item){
         movies = item
     }else{
@@ -32,10 +32,9 @@ function likedMovieList(){
 function likeMovie(movie){
     const likedMovies = likedMovieList()
     console.log(likedMovies)
-
     if (likedMovies[movie.id]){
         likedMovies[movie.id] = undefined
-        // console.log("la peli ya está en LS")
+        
     }else{
         likedMovies[movie.id] = movie
         // console.log("la pelicula no estaba en ls, deberiamos agregarla")
@@ -78,6 +77,7 @@ function principalMovie(MOVIES, container, clean = true){  //clean sirve para co
             movieBtn.addEventListener('click', ()=>{ 
                 movieBtn.classList.toggle('btnMovie--liked')
                 likeMovie(movie);
+                getLikedMovies()//para visualizar o quitar las pelis en tiempo real
             })
             observador.observe(movieImg) //ejecutamos la fn, para que observe el contenedor (movieImg = img) y haga lazy
         }   
@@ -148,16 +148,13 @@ async function getTrendingPreview(){
         titleMovie.classList.add("titleOfMovie");
         const textP = document.createTextNode(movie.original_title) //estamos añadiendo un texto a la etiqueta p
 
-        // const rateMovie = document.createElement("p");
-        // rateMovie.classList.add("rate");
-        // const textRate = document.createTextNode(`Rate:${(movie.vote_average).toFixed(1)}`)
-
         const movieBtn = document.createElement('button');
         movieBtn.classList.add("btnMovie")
         likedMovieList()[movie.id] && movieBtn.classList.add('btnMovie--liked')
         movieBtn.addEventListener('click', ()=>{
             movieBtn.classList.toggle('btnMovie--liked')
             likeMovie(movie);
+            getLikedMovies()//para visualizar en tiempo real cuando damos like a alguna pelicula
         })
 
         //APPENDCHILD
@@ -165,8 +162,6 @@ async function getTrendingPreview(){
         trendingPreview.appendChild(movieContainer); //TrendigPreview es la etiqueta contenedor padre de todos los elementos
         titleMovie.appendChild(textP);//Estamos agregando el texto a la etq p
         titleMovieContainer.appendChild(titleMovie); //la etq p(titleMovie) es hija del contenedor div
-        // rateMovie.appendChild(textRate);
-        // titleMovieContainer.appendChild(rateMovie);//Mismo procedimiento que para titleMovie
         movieContainer.appendChild(titleMovieContainer); //finalmente agregamos toda la estructura del titulo de la pelicula y puntuacion al contenedor padre div
         movieContainer.appendChild(movieBtn); 
     })
@@ -193,10 +188,7 @@ async function getTrends(){
     const moviess = data.results;
     principalMovie(moviess, movieCategory, true)
     
-    // btnLoadmore = document.createElement('button')
-    // btnLoadmore.innerText= 'Cargar más';
-    // movieCategory.appendChild(btnLoadmore)
-    // btnLoadmore.addEventListener('click', getPagesTrend)
+    
 }
 async function getPagesTrend(){ //Fn para paginacion. 6° 
     const {scrollTop, clientHeight, scrollHeight}= document.documentElement; //desestructuramos,es como decir c/var añadirle el document.doc
@@ -307,6 +299,5 @@ function getLikedMovies(){
     const moviesArray = Object.values(likedMovies)
 
     principalMovie(moviesArray, viewContainerFigures, true);
-    console.log(likedMovieList)
 }
 

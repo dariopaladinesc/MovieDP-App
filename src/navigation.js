@@ -1,5 +1,7 @@
 //  +++  REVISAR NOTAS   +++
 //1° Funciones principales
+
+//// Listeners
 let page = 1
 let infinite;
 
@@ -21,6 +23,13 @@ flecha2.addEventListener("click", () => {
 })
 searchButton.addEventListener("click", () => {
     location.hash = `#search=${searchInput.value}`
+})
+
+const enter = document.getElementById("busqueda")
+enter.addEventListener("keydown", function(e){
+    if(e.keyCode === 13){
+    location.hash = `#search=${searchInput.value}`    
+    }
 })
 
 
@@ -54,7 +63,7 @@ function homePage(){
     categorySection.classList.add("inactive");
     searchSection.classList.add("inactive")
     console.log("Volvemos al home")
-
+    footer.classList.remove('inactive')
     getCategoriesPreview();
     getTrendingPreview(); //ejecucuion de FN dependiendo del hash, fn estan en main.js
     getLikedMovies() //fn que ejecuta y agrega las pelis a favs
@@ -68,6 +77,7 @@ function categoriesPage(){
     categorySection.classList.remove("inactive")
     titleCategory.classList.remove("inactive")
     searchSection.classList.add("inactive")
+    footer.classList.add('inactive')
     console.log("Estamos en Categories");
 
     const [_ , categoryData] =  location.hash.split('=')  //estamos separando 2 element. por un lado el category, id-name con el metodo del array split. De esta forma con ECMA6+ al devolvernos 2 variables las colocamos directamente en el array. En "_" se almacena el hash #category= y en el "categorydata" se almacena "5125-action" el id y el nombre al que pertenece 
@@ -87,11 +97,12 @@ function searchPage(){
     homeSection.classList.add("inactive");
     categorySection.classList.add("inactive");
     titleCategory.classList.add("inactive");
-    
+    footer.classList.add('inactive')
+  
     //[#search, "platzi"]
     const [_ , query] =  location.hash.split('=');
-    getMovieSearch(query);
     titleTrends1.innerHTML = "Resultados de: " + query;
+    getMovieSearch(query);
     console.log("Estamos en search")
 
     infinite = getPagesSearch(query)
@@ -105,6 +116,9 @@ function moviePageDescription(){
     homeSection.classList.add("inactive");
     categorySection.classList.add("inactive")
     console.log("Estamos en movie")
+    searchSection1.classList.add('inactive')
+    footer.classList.add('inactive')
+
     // [#movie, "4527"]
     const [_ , movieId] =  location.hash.split('=');
     getMovieById(movieId)
@@ -120,6 +134,8 @@ function trendsPage(){
     categorySection.classList.remove("inactive");
     titleTrends.classList.add("inactive");
     searchSection.classList.add("inactive")
+    footer.classList.add('inactive')
+
     console.log("Estamos en trends");
     getTrends();
     infinite = getPagesTrend // 8°

@@ -6,7 +6,7 @@
 
 :root {
     --principal-color: #705edb;
-    --secondary-color: #4b417b;
+    --secondary-color: #b1a9d5;
     --hard-color:#2f2465;
     --buttons-color: #613dd8;
 
@@ -62,27 +62,32 @@ img{
     margin-left: 10px;
 }
 .principal-nav .nav-search{
-    width: auto;
-    height: 30px;
+    /* width: auto; */
+    /* height: 30px; */
     margin: 0px 10px;
-    border: 1px solid var(--principal-color);
+    /* border: 1px solid var(--principal-color); */
     border-radius: 15px;
     display: flex;
     align-items: center;
-}
-.principal-nav .nav-search:hover{
-   border: 2px solid var(--secondary-color);
-
+    border-right: none;
 }
 .principal-nav .nav-search input{
     background-color: #161616;
-    border:none;
-    width: 1Z5px;
-    height: 24px;
-    margin: 0px 10px;
+    /* border:none; */
+    width: 175px;
+    height: 30px;
+    /* margin: 0px 10px; */
     color: white;
     outline: none; /*quitarle el estilo al seleccionar el input*/
+    border: 1px solid var(--principal-color);
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    padding-left:15px
 }
+.principal-nav .nav-search input:hover{
+    border: 2px solid var(--secondary-color);
+    border-right: none;
+ }
 .principal-nav .nav-search button{
     width: 35px;
     height: 30px;
@@ -94,7 +99,7 @@ img{
     cursor: pointer;
 }
 .principal-nav .nav-search button:hover{
-    background: var(--secondary-color)
+    background: var(--secondary-color);
 }
 .principal-nav .nav-search button img{
     width: 100%;

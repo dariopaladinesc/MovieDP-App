@@ -32,6 +32,7 @@ const buttonMainContainer = document.querySelector(".main-section--buttons-conta
 const trendSection = document.querySelector(".trendSection");
 const titleTrendSection = document.querySelector(".title-section");
 const viewContainerFigures = document.querySelector(".view-section .trend-container-figures");
+const viewSection = document.querySelector(".view-section")
 
 
 
@@ -60,3 +61,8 @@ const flecha = document.querySelector(".flecha ");
 const flecha1 = document.querySelector(".category-section .Fizquierda");
 const flecha2 = document.querySelector(".search-section .btn")
 const searchButton = document.querySelector(".principal-header .search-button")
+
+
+/*Footer   */
+
+const footer = document.querySelector('.footer')
