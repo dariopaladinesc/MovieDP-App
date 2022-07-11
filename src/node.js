@@ -17,10 +17,7 @@ const searchInput = document.querySelector(".search-input")
 const generalDescription = document.querySelector(".GeneralDescription-Movie__Container")
 const movieSection = document.querySelector(".GeneralDescription-Movie__Container .movieSection");
 const movieSection_movieContainer = document.querySelector(".movieSection-MoviesContainer");
-const titleMovieContainer = document.querySelector(".movieSection-MoviesContainer--titleMovie");
-const movieDescription = document.querySelector(".categories-section__moviedescription");
 const listCategories = document.querySelector(".categories-section--listMovie");
-const titleSimilars = document.querySelector(".similares");
 const similarMovieList = document.querySelector(".figure-container--movie-list");
 const titleMovie = document.querySelector(".movieSection-MoviesContainer .titleMovie")
 const vote = document.querySelector(".movieSection-MoviesContainer .vote");
@@ -31,15 +28,10 @@ const description = document.querySelector(".movieSection-MoviesContainer .descr
 /*   HOME SECTION  */
 
 const homeSection = document.querySelector(".homeSection");
-const mainSection = document.querySelector(".principal-main-section");
 const buttonMainContainer = document.querySelector(".main-section--buttons-container");
 const trendSection = document.querySelector(".trendSection");
 const titleTrendSection = document.querySelector(".title-section");
-const trendContainerImg = document.querySelector(".trend-container-figures");
-const viewSection = document.querySelector(".viewSection");
-const viewSectionContainer = document.querySelector(".trend-section-container");
-const viewContainerFigures = document.querySelector(".trend-container-figures");
-const categoriesSectionView = document.querySelector(".categories-section");
+const viewContainerFigures = document.querySelector(".view-section .trend-container-figures");
 
 
 

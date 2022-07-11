@@ -187,16 +187,19 @@ img{
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background-color: var(--principal-color);
+    background-color: rgb(185, 183, 222);
 }
 .btnMovie::before{
     content: "🤍";
 }
 .btnMovie--liked{
-    background-color: rgb(172, 170, 222);
+    background-color: var(--buttons-color);
 }
 .btnMovie--liked::before{
     content:"💜";
+}
+.nuevo-contenedor{
+    position: relative;
 }
 .trend-container-figures .figure-container--movie-list .description-movie{
     display: grid;
@@ -349,11 +352,12 @@ img{
     color: white;
     margin: 40px 15px 0px 15px;
 }
-.previewCategories_container .imagen{
+ .imagen{
     height: 170px;
     width: 113px;
     margin: 5px;
     border-radius: 5px;
+    position: relative;
 }
 
 .container1{

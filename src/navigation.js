@@ -57,6 +57,7 @@ function homePage(){
 
     getCategoriesPreview();
     getTrendingPreview(); //ejecucuion de FN dependiendo del hash, fn estan en main.js
+    getLikedMovies()
 }
 
 function categoriesPage(){
