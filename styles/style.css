@@ -41,7 +41,12 @@ img{
 .trend-container-figures::-webkit-scrollbar{
     display: none;
 }
-
+.imgMovie{
+    background-color: rgb(60, 60, 60);
+}
+.principal-main-section{
+    background-color: rgb(60, 60, 60);
+}
 
 /* HEADER*/
 
@@ -112,10 +117,10 @@ img{
 .principal-main-section{
     width: 100%;
     height: 250px;
-    background: url(https://i.ibb.co/T1JwtqX/rapidos-y-furiosos-jpg-1894821134.webp);
+    background-image:linear-gradient(to top, rgb(16, 16, 16) 20%, transparent 95%), url(https://i.ibb.co/T1JwtqX/rapidos-y-furiosos-jpg-1894821134.webp) ;
     background-size:cover;
     background-repeat: no-repeat;
-    opacity: 0.9;
+    opacity: 0.8;
 }
 .principal-main-section .section-movie-description{
     display: flex;
@@ -347,7 +352,7 @@ img{
     margin: 15px;
 }
 .category-section .Fizquierda{
-    margin: 25px 15px
+    margin: 30px 15px 
 }
 .previewCategories_container{
     display: flex;
@@ -365,8 +370,8 @@ img{
     margin: 5px;
     border-radius: 5px;
     position: relative;
+    background-color: rgb(60, 60, 60);
 }
-
 .container1{
     flex-wrap: wrap;
 }
@@ -376,10 +381,9 @@ img{
 /* INACTIVE DISPLAY*/
 
 .inactive{
-     display: none !important;
+     display: none
 }
 
-.fixed{ /* para colocar la barra de busqueda en el home section */
-        position: fixed;
-        top:0;
+.fixed{
+    position: fixed
 }

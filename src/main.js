@@ -6,7 +6,36 @@
 
 const apiKey =  "ebef3c4904b620dd2750ccb92c78cdc6"
 
-//AXIOS
+// Languague
+
+let idioma;
+
+// function español(){
+//     getApi("es")
+// }
+// function ingles(){
+//     getApi("en")
+// }
+// function germany(){
+//     getApi("de")
+// }
+// function getApi(lan){
+//     const api = axios.create({
+//         baseURL:"https://api.themoviedb.org/3/",
+//         headers: {
+//             "Content-Type": "application/json;charset=utf-8"
+//         },
+//         params:{
+//             "api_key": apiKey,
+//             'language': lan,
+//         },
+//     }); 
+//     }
+
+
+
+
+////   AXIOS
 const api = axios.create({
     baseURL:"https://api.themoviedb.org/3/",
     headers: {
@@ -14,9 +43,11 @@ const api = axios.create({
     },
     params:{
         "api_key": apiKey,
-        'language': 'es'
+        "language": "es"
     },
 }); 
+
+
 
 function likedMovieList(){
     const item = JSON.parse(localStorage.getItem('liked_movies'));
@@ -169,7 +200,9 @@ async function getTrendingPreview(){
 }
 
 async function getCategoriesPreview(){
-    const res = await fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=" + apiKey)
+
+
+    const res = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=es`)
     const data = await res.json();
     
     const categories = data.genres;
@@ -248,7 +281,15 @@ async function getMovieSearch(query){
     })
 
     const movies = data.results;
-    principalMovie(movies, searchSection1, true)
+    if (movies.length != 0){
+        principalMovie(movies, searchSection1, true)
+        titleTrends1.innerHTML = "Resultados de: " + query;
+        searchSection1.classList.remove('inactive')
+    }else{
+        titleTrends1.innerHTML = 'No se encontró lo que estabas buscando'
+        searchSection1.classList.add('inactive')
+    }
+    
     
 }
 function getPagesSearch(query){
@@ -266,6 +307,7 @@ function getPagesSearch(query){
             }, 
         })
         const movies = data.results;
+     
         principalMovie(movies, searchSection1, false)
        
         }
@@ -300,4 +342,5 @@ function getLikedMovies(){
 
     principalMovie(moviesArray, viewContainerFigures, true);
 }
+
 

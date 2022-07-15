@@ -1,6 +1,7 @@
 //  +++  REVISAR NOTAS   +++
 //1° Funciones principales
 
+
 //// Listeners
 let page = 1
 let infinite;
@@ -28,7 +29,7 @@ searchButton.addEventListener("click", () => {
 const enter = document.getElementById("busqueda")
 enter.addEventListener("keydown", function(e){
     if(e.keyCode === 13){
-    location.hash = `#search=${searchInput.value}`    
+    location.hash = `#search=${searchInput.value}`      
     }
 })
 
@@ -38,6 +39,7 @@ function navigator(){
         window.removeEventListener("scroll", infinite, false)
         infinite = undefined
     }
+
     if (location.hash.startsWith("#trends=")){  //preguntamos si el "hash" que esta dentro de "location" empieza con "trends" en la url entonces realize X accion
         trendsPage()
     }else if ((location.hash.startsWith("#search="))){
@@ -97,11 +99,11 @@ function searchPage(){
     homeSection.classList.add("inactive");
     categorySection.classList.add("inactive");
     titleCategory.classList.add("inactive");
-    footer.classList.add('inactive')
+    footer.classList.add('inactive');
   
     //[#search, "platzi"]
     const [_ , query] =  location.hash.split('=');
-    titleTrends1.innerHTML = "Resultados de: " + query;
+    
     getMovieSearch(query);
     console.log("Estamos en search")
 
