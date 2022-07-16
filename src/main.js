@@ -8,29 +8,31 @@ const apiKey =  "ebef3c4904b620dd2750ccb92c78cdc6"
 
 // Languague
 
-let idioma;
 
-// function español(){
-//     getApi("es")
-// }
-// function ingles(){
-//     getApi("en")
-// }
-// function germany(){
-//     getApi("de")
-// }
-// function getApi(lan){
-//     const api = axios.create({
-//         baseURL:"https://api.themoviedb.org/3/",
-//         headers: {
-//             "Content-Type": "application/json;charset=utf-8"
-//         },
-//         params:{
-//             "api_key": apiKey,
-//             'language': lan,
-//         },
-//     }); 
-//     }
+
+const select = document.getElementById("language-container")
+select.addEventListener('change', hola)
+
+
+function hola(){
+    let lan; 
+    if (select.selectedIndex == 0){
+        lan = "es"
+        getCategoriesPreview(lan)
+    }else if(select.selectedIndex == 1){
+        lan = "en"
+        getCategoriesPreview(lan)
+    }else if (select.selectedIndex == 2){
+        lan = "de"
+        getCategoriesPreview(lan)
+    }else{
+        lan = "en"
+        getCategoriesPreview(lan)
+
+    }
+    return lan
+} 
+
 
 
 
@@ -43,7 +45,7 @@ const api = axios.create({
     },
     params:{
         "api_key": apiKey,
-        "language": "es"
+        "language": "en",
     },
 }); 
 
@@ -92,7 +94,7 @@ function principalMovie(MOVIES, container, clean = true){  //clean sirve para co
             const movieImg = document.createElement("img"); 
             movieImg.classList.add("imagen");
             movieImg.setAttribute("alt", movie.title);
-            movieImg.setAttribute("data-img", "https://image.tmdb.org/t/p/w300" + movie.poster_path) //cambiamos el atributo"data-img" para poder usar el lazy loading
+            movieImg.setAttribute("data-img", "https://image.tmdb.org/t/p/w300" + movie.poster_path) //cambiamos el atributo a "data-img" para poder usar el lazy loading
             const newContainer = document.createElement("div")
             newContainer.classList.add("nuevo-contenedor");
             const movieBtn = document.createElement('button');
@@ -101,10 +103,10 @@ function principalMovie(MOVIES, container, clean = true){  //clean sirve para co
             newContainer.append(movieImg, movieBtn)
             container.appendChild(newContainer);  
         
-            likedMovieList()[movie.id] && movieBtn.classList.add('btnMovie--liked')
             movieImg.addEventListener("click", ()=>{  //al momento de dar click en la img se ejecuta el cambio de hash, (tener en cuenta que es el mismo contenedor donde acabamos de crear la img)
                 location.hash = "#movie=" + movie.id
             })
+            likedMovieList()[movie.id] && movieBtn.classList.add('btnMovie--liked')
             movieBtn.addEventListener('click', ()=>{ 
                 movieBtn.classList.toggle('btnMovie--liked')
                 likeMovie(movie);
@@ -138,7 +140,7 @@ function CATEGORIES(CATEGORY, ContainerCat){
 const observador = new IntersectionObserver((entries) =>{
     entries.forEach((entry) => {
         if (entry.isIntersecting){
-            const url = entry.target.getAttribute('data-img');//en url estamos guardando la url de c/movie, ya que con getAtribute almacenamos el atributo que esta en la img, por ello tambien cambiamos el atributo "data-img" en las funciones originales
+            const url = entry.target.getAttribute('data-img');//en url estamos   guardando la url de c/movie, ya que con getAtribute almacenamos el atributo que esta en la img, por ello tambien cambiamos el atributo "data-img" en las funciones originales
             entry.target.setAttribute('src',url)//colocamos el atributo src con el link guardado anteriormente
         }    
     })
@@ -199,10 +201,10 @@ async function getTrendingPreview(){
     
 }
 
-async function getCategoriesPreview(){
+async function getCategoriesPreview(lan){
 
 
-    const res = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=es`)
+    const res = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=${lan}`)
     const data = await res.json();
     
     const categories = data.genres;
@@ -286,7 +288,7 @@ async function getMovieSearch(query){
         titleTrends1.innerHTML = "Resultados de: " + query;
         searchSection1.classList.remove('inactive')
     }else{
-        titleTrends1.innerHTML = 'No se encontró lo que estabas buscando'
+        titleTrends1.innerHTML = 'No se encontró lo que estabas buscando, prueba con una palabra clave'
         searchSection1.classList.add('inactive')
     }
     
@@ -339,7 +341,6 @@ async function getSimilarsMovies(id){
 function getLikedMovies(){
     const likedMovies = likedMovieList()
     const moviesArray = Object.values(likedMovies)
-
     principalMovie(moviesArray, viewContainerFigures, true);
 }
 

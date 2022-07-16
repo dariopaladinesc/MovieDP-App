@@ -13,23 +13,27 @@ window.addEventListener("scroll", infinite, false) // Infinite scroll dinámico 
 verMas.addEventListener("click", () => {
     location.hash = "trends="
 })
-flecha.addEventListener("click", () => {
-     location.hash = window.history.back() //btn principal para regresar a pag anteriores
-})
+
 flecha1.addEventListener("click", () => {
       location.hash = "#home="
 })
 flecha2.addEventListener("click", () => {
      location.hash = "#home="
 })
+flecha3.addEventListener("click", () => {
+    location.hash = window.history.back()
+    // window.location.reload()
+})
 searchButton.addEventListener("click", () => {
     location.hash = `#search=${searchInput.value}`
+    location.reload();
 })
 
 const enter = document.getElementById("busqueda")
 enter.addEventListener("keydown", function(e){
     if(e.keyCode === 13){
     location.hash = `#search=${searchInput.value}`      
+    location.reload()
     }
 })
 
@@ -106,6 +110,7 @@ function searchPage(){
     
     getMovieSearch(query);
     console.log("Estamos en search")
+    
 
     infinite = getPagesSearch(query)
     // getLikedMovies()

@@ -56,10 +56,10 @@ const titleTrends1 = document.querySelector(".search-section .titleTrends")
 
 /*  BUTTONS   */
 
-const verMas = document.querySelector("#verMas"); // #verMas es el boton
-const flecha = document.querySelector(".flecha ");
-const flecha1 = document.querySelector(".category-section .Fizquierda");
-const flecha2 = document.querySelector(".search-section .btn")
+const verMas = document.querySelector("#verMas"); 
+const flecha1 = document.querySelector(".category-section .flecha");
+const flecha2 = document.querySelector(".search-section .flecha")
+const flecha3 = document.querySelector('.movieSection .flecha')
 const searchButton = document.querySelector(".principal-header .search-button")
 
 
