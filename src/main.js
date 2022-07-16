@@ -18,22 +18,24 @@ function hola(){
     let lan; 
     if (select.selectedIndex == 0){
         lan = "es"
-        getCategoriesPreview(lan)
+        getCategoriesPreview(lan) //ejecuto fn para cambiar idioma de categorias
+        console.log("lan: Español")
     }else if(select.selectedIndex == 1){
         lan = "en"
         getCategoriesPreview(lan)
+        console.log("lan: Ingles")
     }else if (select.selectedIndex == 2){
         lan = "de"
         getCategoriesPreview(lan)
+        console.log("lan: Aleman")
     }else{
         lan = "en"
         getCategoriesPreview(lan)
-
     }
-    return lan
+
+    return lan 
+    
 } 
-
-
 
 
 
@@ -45,10 +47,8 @@ const api = axios.create({
     },
     params:{
         "api_key": apiKey,
-        "language": "en",
     },
 }); 
-
 
 
 function likedMovieList(){
@@ -320,7 +320,8 @@ async function getMovieById(id){
     const { data: movie } = await api("movie/" + id, {
         params:{
             "api_key": apiKey,
-        },
+            'language': hola() //seleccion de idioma
+        }, 
     })
     const PosterMovie = "https://image.tmdb.org/t/p/w500" + movie.poster_path; 
     movieSection.style.backgroundImage = `url(${PosterMovie})`; 
