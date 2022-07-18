@@ -9,6 +9,7 @@ En este desarrollo se aplicaron conocimientos de:
 - Loading Skeletons
 - Manipulación de Arrays y Objetos
 - Responsive Desing
+- Selección de lenguaje
 - Aplicación tipo SPA(Single Page Aplication)
 
 
