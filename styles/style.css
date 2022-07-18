@@ -137,6 +137,7 @@ img{
     color: white;
     margin: 0px 10px;
 }
+
 .principal-main-section .section-movie-description p{
     width: 70%;
     font-size: 12px;
@@ -515,11 +516,11 @@ hr{
         margin:5px 25px; 
     }
     .principal-main-section .section-movie-description p{
-        font-size: 1.4rem;
-        line-height: 24px;
+        font-size: 1.2rem;
+        line-height: 18px;
     }
     h2{
-        font-size: 1.6rem;
+        font-size: 1.7rem;
     }
     h3{
         font-size: 1.5rem;
@@ -571,7 +572,7 @@ hr{
         margin-right: 40px;
     }
     .movieSection {
-        background-size: 100% 180%;
+        background-size: 100% 120%;
     }
     .movieSection-MoviesContainer {
         margin-top: 550px;
@@ -587,5 +588,11 @@ hr{
     }
     .category-section h2{
         margin-left: 10.5%;
+    }
+    .category-section h3{
+        margin-left: 10.5%;
+    }
+    .similares {
+        margin: 40px 15px 10px 35px;
     }
 }

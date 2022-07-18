@@ -13,7 +13,6 @@ const apiKey =  "ebef3c4904b620dd2750ccb92c78cdc6"
 const select = document.getElementById("language-container")
 select.addEventListener('change', changeLanguage)
 
-
 function changeLanguage(){
     let lan; 
     if (select.selectedIndex == 0){
@@ -49,30 +48,35 @@ const api = axios.create({
         "api_key": apiKey,
     },
 }); 
-
+const titulo = document.querySelector('.view-section')
 
 function likedMovieList(){
     const item = JSON.parse(localStorage.getItem('liked_movies'));
     let movies; 
+   
     if(item){
         movies = item
     }else{
         movies = {}
     }
-
+    
     return movies;
 }
 function likeMovie(movie){
-    const likedMovies = likedMovieList()
-    console.log(likedMovies)
-    if (likedMovies[movie.id]){
-        likedMovies[movie.id] = undefined
-        
-    }else{
-        likedMovies[movie.id] = movie
-        // console.log("la pelicula no estaba en ls, deberiamos agregarla")
+    
+     const likedMovies = likedMovieList()
+     if (likedMovies == {}){
+        titulo.classList.add('inactive')
     }
-    localStorage.setItem("liked_movies", JSON.stringify(likedMovies))
+     console.log(likedMovies)
+     if (likedMovies[movie.id]){
+         likedMovies[movie.id] = undefined
+         
+     }else{
+         likedMovies[movie.id] = movie
+         // console.log("la pelicula no estaba en ls, deberiamos agregarla")
+     }
+     localStorage.setItem("liked_movies", JSON.stringify(likedMovies))
 }
 
 //  +++++ REPEAT FUNCTIONS  +++++++
@@ -219,7 +223,6 @@ async function getTrends(){
             "api_key": apiKey,
         },
     })
-
     const moviess = data.results;
     principalMovie(moviess, movieCategory, true)
     
@@ -250,7 +253,7 @@ async function getMovieCategory(id){
             with_genres: id,
         }
     })
-
+    console.log(data)
     const movies = data.results;
     principalMovie(movies, movieCategory)
     
