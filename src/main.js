@@ -11,10 +11,10 @@ const apiKey =  "ebef3c4904b620dd2750ccb92c78cdc6"
 
 
 const select = document.getElementById("language-container")
-select.addEventListener('change', hola)
+select.addEventListener('change', changeLanguage)
 
 
-function hola(){
+function changeLanguage(){
     let lan; 
     if (select.selectedIndex == 0){
         lan = "es"
@@ -320,7 +320,7 @@ async function getMovieById(id){
     const { data: movie } = await api("movie/" + id, {
         params:{
             "api_key": apiKey,
-            'language': hola() //seleccion de idioma
+            'language': changeLanguage() //seleccion de idioma
         }, 
     })
     const PosterMovie = "https://image.tmdb.org/t/p/w500" + movie.poster_path; 
