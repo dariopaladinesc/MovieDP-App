@@ -20,7 +20,7 @@ En este desarrollo se aplicaron conocimientos de:
 - ✨JAVASCRIPT ✨
 
 
-> Puedes ver la aplicación desplegada y funcionando aqui. [MovieDP](https://dariopaladinesc.github.io/MovieDP-App/)
+> Puedes ver la aplicación desplegada y funcionando aqui. [MovieDP](https://dariopaladinesc.github.io/MovieDP-App/index.html)
 
 
 ## Others
