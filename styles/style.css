@@ -595,4 +595,7 @@ hr{
     .similares {
         margin: 40px 15px 10px 35px;
     }
+    .principal-main-section .section-movie-description p {
+        width: 45%;
+    }
 }
